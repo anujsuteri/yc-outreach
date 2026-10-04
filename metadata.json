@@ -1,0 +1,8 @@
+{
+  "name": "YC Founder Outreach",
+  "description": "Pick a YC batch, find founder emails, and write personalised cold emails from one template.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

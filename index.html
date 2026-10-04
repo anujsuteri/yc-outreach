@@ -1,121 +1,2086 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>YC Founder Outreach</title>
-<meta name="description" content="Pick a YC batch, find founder emails, and write personalised cold emails from one template.">
-<style>
-:root{--bg:#f7f7f5;--card:#fff;--fg:#1c1c1a;--muted:#6b6b66;--line:#e4e3de;--accent:#e2561b;--ok:#1f8a4c;--warn:#a86b00;--err:#c0392b}
-@media (prefers-color-scheme:dark){:root{--bg:#141413;--card:#1e1e1c;--fg:#ecebe6;--muted:#9a998f;--line:#302f2b;--accent:#f07a45;--ok:#4cc27d;--warn:#e0a53a;--err:#e8705f}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,system-ui,"Segoe UI",sans-serif}
-main{max-width:860px;margin:0 auto;padding:32px 16px}h1{margin:0 0 4px;font-size:24px}h2{font-size:16px;margin:0 0 10px}
-p.sub{margin:0 0 20px;color:var(--muted)}a{color:var(--accent)}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:12px}
-label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
-input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
-textarea{min-height:260px;resize:vertical;line-height:1.5}
-.ph{font-size:13px;color:var(--muted);margin:8px 0 0}.ph code{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:0 5px;margin-right:4px;cursor:pointer}
-.row2{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}.row2 select,.row2 input{width:auto;flex:1;min-width:160px}
-.status{font-size:13px;color:var(--muted);margin:10px 0 0;min-height:1.5em}.status.err{color:var(--err)}
-.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:1;align-items:center}
-.bar input{flex:1;min-width:180px;width:auto;background:var(--card)}.bar select{width:auto;background:var(--card)}
-.chk{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted);white-space:nowrap}.chk input{width:auto}
-details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}details.sent{opacity:.55}
-summary{cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:center;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"▸";color:var(--muted)}details[open] summary::before{content:"▾"}
-.name{font-weight:600}.meta{color:var(--muted);font-size:13px;margin-left:auto;text-align:right}
-.badge{font-size:12px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
-.valid{color:var(--ok)}.unknown,.guess{color:var(--warn)}.site{color:var(--accent)}.none{color:var(--muted)}
-.body{padding:0 14px 14px;border-top:1px solid var(--line)}.r{margin:10px 0 0;font-size:14px;overflow-wrap:anywhere}.r b{color:var(--muted);font-weight:500;display:inline-block;width:64px}
-.one{color:var(--muted);font-size:14px;margin:10px 0 0}
-pre{white-space:pre-wrap;font:inherit;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0}
-.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-button,a.btn{font:inherit;font-size:13px;cursor:pointer;border-radius:8px;padding:6px 12px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none}
-button.primary{background:var(--accent);border-color:var(--accent);color:#fff}button:disabled{opacity:.5;cursor:default}
-a.lnk{color:var(--muted);font-size:13px}
-footer{color:var(--muted);font-size:13px;margin-top:32px}
-</style></head><body><main>
-<h1>YC Founder Outreach</h1>
-<p class="sub">Pick a YC batch, find founder emails, and write personalised cold emails from one template. Free without any keys; everything you type stays in your browser.</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <title>ReachYC — Founder Intelligence & Outreach Platform</title>
+  <meta name="description" content="Find verified Y Combinator founder emails, craft personalized cold outreach at scale, and accelerate your startup pipeline across all YC batches.">
+  <meta name="keywords" content="YC founders, Y Combinator directory, founder emails, cold email outreach, startup leads, B2B sales, YC batch search">
+  <meta name="author" content="ReachYC">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f9f8f5">
+  <meta name="color-scheme" content="light">
 
-<section class="panel">
-  <h2>1. Your details</h2>
-  <div class="grid">
-    <label class="f">Your name<input data-k="my_name" placeholder="Jane Doe" autocomplete="name"></label>
-    <label class="f">Portfolio / website<input data-k="portfolio" placeholder="https://..."></label>
-    <label class="f">GitHub<input data-k="github" placeholder="https://github.com/..."></label>
-    <label class="f">Resume link<input data-k="resume" placeholder="https://..."></label>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23141311'/><path d='M9 8h8a5 5 0 0 1 5 5 5 5 0 0 1-5 5H9z' fill='none' stroke='%23ff6600' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M9 18h9l5 6' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M9 8v16' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round'/></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='42' fill='%23141311'/><path d='M50 45h46a28 28 0 0 1 28 28 28 28 0 0 1-28 28H50z' fill='none' stroke='%23ff6600' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/><path d='M50 101h52l28 34' fill='none' stroke='%23ffffff' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/><path d='M50 45v90' fill='none' stroke='%23ffffff' stroke-width='14' stroke-linecap='round'/></svg>">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReachYC">
+  <meta property="og:title" content="ReachYC — Founder Intelligence & Outreach Platform">
+  <meta property="og:description" content="Find verified Y Combinator founder emails, craft personalized cold outreach at scale, and accelerate your startup pipeline across all YC batches.">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@reachyc">
+  <meta name="twitter:title" content="ReachYC — Founder Intelligence & Outreach Platform">
+  <meta name="twitter:description" content="Find verified Y Combinator founder emails, craft personalized cold outreach at scale, and accelerate your startup pipeline across all YC batches.">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ReachYC",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Find verified Y Combinator founder emails, craft personalized cold outreach at scale, and accelerate your startup pipeline across all YC batches.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  
+  <!-- Bricolage Grotesque & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Hugeicons CDN -->
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root {
+      /* Clean SaaS Creme & Pure White Palette */
+      --bg: #faf9f6;
+      --bg-surface: #f4f0e8;
+      --card: #ffffff;
+      --card-subtle: #fcfbf9;
+      --card-hover: #f7f5f0;
+      --fg: #141311;
+      --fg-secondary: #5a5750;
+      --fg-tertiary: #928f85;
+      --border: #e8e4db;
+      --border-subtle: #f0ece3;
+      --border-strong: #d3cebf;
+      
+      --accent: #141311;
+      --blue: #0969da;
+      --emerald: #167a3a;
+      --emerald-soft: rgba(22, 122, 58, 0.08);
+
+      --nav-glass: rgba(250, 249, 246, 0.95);
+      --shadow-xs: 0 1px 2px rgba(20, 19, 17, 0.03);
+      --shadow-sm: 0 2px 6px rgba(20, 19, 17, 0.04);
+      --shadow-md: 0 10px 30px rgba(20, 19, 17, 0.08);
+      
+      --spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --spring-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+      
+      --radius-xs: 4px;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      max-width: 100vw;
+      overflow: hidden;
+      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body, button, input, textarea, select {
+      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.4;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Bar */
+    header.top-nav {
+      flex-shrink: 0;
+      background: var(--nav-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 44px;
+      display: flex;
+      align-items: center;
+      padding-top: env(safe-area-inset-top, 0);
+      z-index: 100;
+    }
+    .nav-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Mobile Side Menu Trigger for Signed-Up Users */
+    .mobile-menu-btn {
+      display: none !important;
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      background: #141311;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+    .brand-mark svg {
+      width: 14px;
+      height: 14px;
+    }
+    .brand-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+    }
+
+    /* Desktop Segmented Views */
+    .desktop-segmented {
+      display: flex;
+      background: rgba(20, 19, 17, 0.05);
+      padding: 2px;
+      border-radius: var(--radius-sm);
+      gap: 1px;
+    }
+    .tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--fg-secondary);
+      border: none;
+      background: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s var(--spring);
+      white-space: nowrap;
+    }
+    .tab:hover { color: var(--fg); }
+    .tab.active {
+      background: #ffffff;
+      color: var(--fg);
+      box-shadow: 0 1px 3px rgba(20, 19, 17, 0.08);
+    }
+
+    /* Auth Action in Nav */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .auth-btn {
+      height: 30px;
+      padding: 0 12px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--fg);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s var(--spring);
+      box-shadow: var(--shadow-xs);
+    }
+    .auth-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--card-hover);
+      transform: translateY(-1px);
+    }
+    .auth-btn.primary {
+      background: #141311;
+      border-color: #141311;
+      color: #ffffff;
+    }
+    .auth-btn.primary:hover {
+      background: #000000;
+      border-color: #000000;
+    }
+    .dot-online {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--emerald);
+    }
+
+    /* Mobile Infinite Moving Sponsors with PURE WHITE Background & No Tags */
+    .mobile-marquee-wrap {
+      display: none;
+      flex-shrink: 0;
+      background: var(--bg-surface);
+      overflow: hidden;
+      width: 100%;
+      user-select: none;
+      z-index: 80;
+    }
+    .mobile-marquee-wrap.top-strip {
+      border-bottom: 1px solid var(--border);
+      padding: 6px 0;
+    }
+    .mobile-marquee-wrap.bottom-strip {
+      border-top: 1px solid var(--border);
+      padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0));
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 8px;
+    }
+    .marquee-track.move-left {
+      animation: marqueeScrollLeft 30s linear infinite;
+    }
+    .marquee-track.move-right {
+      animation: marqueeScrollRight 30s linear infinite;
+    }
+    .mobile-marquee-wrap:active .marquee-track,
+    .mobile-marquee-wrap:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marqueeScrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .mobile-sponsor-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #ffffff !important;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 11.5px;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-xs);
+    }
+    .mobile-sponsor-pill img {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      object-fit: contain;
+    }
+
+    /* Screen Layout (Desktop: Side Rails Locked, Center Scrolls) */
+    .app-screen-layout {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: grid;
+      grid-template-columns: 205px minmax(0, 1fr) 205px;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    /* 10 Desktop Sponsor Cards (Crisp White SaaS Cards) */
+    .desktop-ad-rail {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .square-sponsor-card {
+      width: 100%;
+      flex: 1 1 0;
+      height: calc((100% - 24px) / 5);
+      min-height: 0;
+      box-sizing: border-box;
+      background: #ffffff !important;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s var(--spring), border-color 0.15s ease, box-shadow 0.18s ease;
+      box-shadow: var(--shadow-xs);
+    }
+    .square-sponsor-card:hover {
+      border-color: #141311;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(20, 19, 17, 0.06);
+    }
+    .ad-top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      width: 100%;
+    }
+    .ad-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      flex: 1;
+    }
+    .ad-logo-img {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: #f6f4ee;
+      padding: 1px;
+    }
+    .ad-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--fg);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.02em;
+      text-align: left;
+    }
+    .ad-external-icon {
+      font-size: 10.5px;
+      color: var(--fg-tertiary);
+      transition: color 0.15s ease, transform 0.15s ease;
+      margin-left: auto;
+    }
+    .square-sponsor-card:hover .ad-external-icon {
+      color: #141311;
+      transform: translate(1px, -1px);
+    }
+    .ad-copy {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--fg-secondary);
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 2px 0 3px;
+    }
+    .ad-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--fg);
+      background: rgba(20, 19, 17, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+      width: fit-content;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .square-sponsor-card:hover .ad-link {
+      background: #141311;
+      color: #ffffff;
+    }
+
+    /* Center Scrollable Stage */
+    .directory-scroll-stage {
+      height: 100%;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 4px;
+      scrollbar-width: thin;
+    }
+
+    .view-tab {
+      display: none;
+      animation: tabFade 0.16s var(--spring);
+    }
+    .view-tab.active { display: block; }
+    @keyframes tabFade {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cohort Selection Toolbar */
+    .saas-toolbar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 7px 10px;
+      margin-bottom: 8px;
+      box-shadow: var(--shadow-xs);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    /* Custom Batch Dropdown */
+    .batch-dropdown {
+      position: relative;
+      min-width: 160px;
+      max-width: 240px;
+      width: 100%;
+    }
+    .batch-btn {
+      width: 100%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 0 9px;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--fg);
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .batch-btn:hover { border-color: var(--border-strong); }
+    .batch-popover {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      width: 100%;
+      min-width: 230px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      z-index: 200;
+      padding: 5px;
+      opacity: 0;
+      transform: translateY(-3px);
+      pointer-events: none;
+      visibility: hidden;
+      transition: all 0.15s var(--spring);
+    }
+    .batch-popover.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      visibility: visible;
+    }
+    .batch-search {
+      width: 100%;
+      padding: 5px 8px;
+      font-size: 11.5px;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      color: var(--fg);
+      outline: none;
+      margin-bottom: 3px;
+    }
+    .batch-items {
+      max-height: 190px;
+      overflow-y: auto;
+    }
+    .batch-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 7px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 11.5px;
+      color: var(--fg);
+      transition: background 0.1s ease;
+    }
+    .batch-item:hover { background: var(--card-hover); }
+    .batch-item.active {
+      background: #141311;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Filter Controls */
+    .filter-row {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .search-wrap {
+      flex: 1;
+      min-width: 140px;
+      position: relative;
+    }
+    .search-wrap i {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--fg-tertiary);
+      font-size: 13px;
+      pointer-events: none;
+    }
+    .search-wrap input {
+      width: 100%;
+      height: 30px;
+      padding: 0 8px 0 26px;
+      font-size: 11.5px;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--fg);
+      outline: none;
+    }
+
+    /* Status Popover */
+    .status-dropdown { position: relative; }
+    .status-btn {
+      height: 30px;
+      padding: 0 9px;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--fg);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .status-btn:hover { border-color: var(--border-strong); }
+    .status-popover {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      min-width: 140px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      z-index: 200;
+      padding: 4px;
+      opacity: 0;
+      transform: translateY(-3px);
+      pointer-events: none;
+      visibility: hidden;
+      transition: all 0.15s var(--spring);
+    }
+    .status-popover.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      visibility: visible;
+    }
+    .status-opt {
+      padding: 5px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--fg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.1s ease;
+    }
+    .status-opt:hover { background: var(--card-hover); }
+    .status-opt.active {
+      background: #141311;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Buttons */
+    button, a.btn {
+      font: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      height: 30px;
+      padding: 0 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--fg);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s var(--spring);
+      text-decoration: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+    button:hover, a.btn:hover {
+      border-color: var(--border-strong);
+      background: var(--card-hover);
+      transform: translateY(-1px);
+    }
+    button:active, a.btn:active { transform: scale(0.97); }
+    button.primary, a.btn.primary {
+      background: #141311;
+      border-color: #141311;
+      color: #ffffff;
+    }
+    button.primary:hover, a.btn.primary:hover {
+      background: #000000;
+      border-color: #000000;
+    }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Cards */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .item-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.18s var(--spring), border-color 0.15s ease, box-shadow 0.18s ease;
+      box-shadow: var(--shadow-xs);
+    }
+    .item-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .item-card.sent { opacity: 0.55; }
+
+    .item-header {
+      padding: 6px 10px;
+      min-height: 44px;
+      height: 44px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .item-header:hover { background: var(--card-hover); }
+    .item-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+    }
+    .item-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-sm);
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 10.5px;
+      color: var(--fg-secondary);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .item-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .item-info {
+      min-width: 0;
+      flex: 1;
+    }
+    .item-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+    }
+    .item-desc {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: var(--fg-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-right {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    
+    /* Focused Email Blur Chip (Company name is always crystal clear) */
+    .quick-copy-email {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 3px 6px;
+      border-radius: var(--radius-xs);
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .quick-copy-email:hover { border-color: var(--border-strong); }
+    .quick-copy-email.copied, button.copied {
+      background: var(--emerald-soft) !important;
+      border-color: var(--emerald) !important;
+      color: var(--emerald) !important;
+    }
+    .quick-copy-email.is-blurred {
+      color: var(--fg-secondary);
+    }
+    .quick-copy-email.is-blurred span.blur-target {
+      filter: blur(3.5px);
+      user-select: none;
+      display: inline-block;
+    }
+
+    .chevron {
+      font-size: 12px;
+      color: var(--fg-tertiary);
+      transition: transform 0.2s var(--spring-bouncy);
+    }
+    .item-card.open .chevron { transform: rotate(180deg); }
+
+    .accordion-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.2s var(--spring);
+    }
+    .item-card.open .accordion-wrap { grid-template-rows: 1fr; }
+    .accordion-inner { overflow: hidden; }
+    .item-detail {
+      padding: 10px 12px;
+      background: var(--card-subtle);
+      border-top: 1px solid var(--border);
+    }
+
+    .tray-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .tray-row:last-child { border-bottom: none; }
+    .tray-founder {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .tray-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9.5px;
+      color: var(--fg-secondary);
+      overflow: hidden;
+    }
+    .tray-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .tray-name { font-size: 11px; font-weight: 600; color: var(--fg); }
+    .tray-title { font-size: 10px; color: var(--fg-secondary); }
+
+    .chip-list {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      transition: all 0.12s ease;
+    }
+    .chip:hover { border-color: var(--border-strong); }
+    .chip.active {
+      background: #141311;
+      border-color: #141311;
+      color: #ffffff;
+    }
+    .chip.is-locked .blur-target {
+      filter: blur(3.5px);
+      user-select: none;
+    }
+
+    .tray-draft {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      margin-top: 6px;
+    }
+    .tray-meta {
+      font-size: 10px;
+      color: var(--fg-secondary);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    .tray-meta b { color: var(--fg); font-weight: 600; width: 40px; }
+    .tray-body-preview {
+      font-size: 11px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      padding: 7px;
+      margin: 5px 0;
+      color: var(--fg);
+    }
+    .tray-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+    .tray-actions .btn-grid {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    /* Panels */
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-xs);
+    }
+    .panel-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    label.field {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--fg-secondary);
+    }
+    input, textarea, select {
+      font: inherit;
+      color: var(--fg);
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 5px 7px;
+      font-size: 11px;
+      outline: none;
+      width: 100%;
+    }
+    textarea {
+      min-height: 140px;
+      line-height: 1.4;
+      font-size: 11px;
+    }
+    .tags-row {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+    .tag-code {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      padding: 2px 4px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    /* Mobile Drawer Backdrop & Side Menu for Logged-In Users */
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 19, 17, 0.45);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 399;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+    .mobile-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-sidebar-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50vw;
+      max-width: 50vw;
+      background: #ffffff;
+      border-right: 1px solid var(--border);
+      z-index: 400;
+      padding: 14px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(20, 19, 17, 0.15);
+      transform: translateX(-100%);
+      transition: transform 0.26s var(--spring);
+    }
+    .mobile-sidebar-drawer.open {
+      transform: translateX(0);
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .drawer-user-card {
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 9px 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .drawer-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #141311;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .drawer-user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--fg);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .drawer-user-email {
+      font-size: 10.5px;
+      color: var(--fg-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mobile-drawer-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--fg-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+    .mobile-drawer-item:hover {
+      background: var(--card-hover);
+      color: var(--fg);
+    }
+    .mobile-drawer-item.active {
+      background: #141311;
+      border-color: #141311;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .mobile-drawer-item.active i {
+      color: #ffffff;
+    }
+
+    /* Centered Sign Up Popup Modal */
+    .auth-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 19, 17, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .auth-modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .auth-modal-dialog {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: var(--shadow-md);
+      transform: scale(0.95);
+      transition: transform 0.22s var(--spring-bouncy);
+    }
+    .auth-modal-backdrop.open .auth-modal-dialog {
+      transform: scale(1);
+    }
+
+    .skeleton-line {
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--card-subtle);
+      margin-bottom: 5px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .desktop-segmented { display: none !important; }
+      .mobile-menu-btn.is-active-user { display: inline-flex !important; }
+      .app-screen-layout {
+        grid-template-columns: 1fr;
+        padding: 8px 10px;
+      }
+      .desktop-ad-rail { display: none; }
+      .mobile-marquee-wrap { display: block; }
+      .saas-toolbar { padding: 6px 8px; }
+      .filter-row { padding: 6px 8px; }
+      .tray-actions .btn-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<header class="top-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <!-- Mobile Side Menu Button (Shown ONLY when signed in on mobile) -->
+      <button type="button" class="mobile-menu-btn" id="mobileMenuTrigger" onclick="toggleMobileMenu(true)" aria-label="Open menu" title="Menu">
+        <i class="hgi-stroke hgi-menu-01"></i>
+      </button>
+
+      <a href="#" class="brand" onclick="switchTab('tab-directory'); return false;">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h7a4 4 0 0 1 4 4 4 4 0 0 1-4 4H4z"/>
+            <path d="M4 12h8l4 8"/>
+            <path d="M4 4v16"/>
+          </svg>
+        </div>
+        <span class="brand-name">ReachYC</span>
+      </a>
+    </div>
+
+    <!-- Desktop Segmented Views -->
+    <div class="desktop-segmented" role="tablist">
+      <button class="tab active" data-tab="tab-directory">
+        <span>Startups</span>
+      </button>
+      <button class="tab" data-tab="tab-template">
+        <span>Template</span>
+      </button>
+      <button class="tab" data-tab="tab-verifier">
+        <span>Verify</span>
+      </button>
+      <button class="tab" data-tab="tab-supabase">
+        <span>Supabase</span>
+      </button>
+    </div>
+
+    <!-- Right Header Action -->
+    <div class="nav-actions" id="authNavSlot">
+      <button type="button" class="auth-btn primary" onclick="openAuthModal()">
+        <span>Sign In</span>
+      </button>
+    </div>
   </div>
-  <h2>2. Email template</h2>
-  <label class="f">Subject<input data-k="subject"></label>
-  <label class="f" style="margin-top:10px">Body<textarea data-k="body"></textarea></label>
-  <p class="ph" id="vars">Click to insert: <code>{first_name}</code><code>{company}</code><code>{one_liner}</code><code>{batch}</code><code>{my_name}</code><code>{portfolio}</code><code>{github}</code><code>{resume}</code>
-  &nbsp;<button id="reset" type="button">Reset template</button></p>
-  <p class="ph">Lines like <code>resume: {resume}</code> are dropped when you leave that field empty. Email labels: <span class="badge valid">verified</span> / <span class="badge unknown">unverified</span> come from Apify (step 4), <span class="badge site">on site</span> is listed on the company's website, <span class="badge guess">guess</span> is the most common pattern (right about 80% of the time) and may bounce.</p>
-</section>
+</header>
 
-<section class="panel">
-  <h2>3. Pick a YC batch</h2>
-  <div class="row2">
-    <select id="batch" aria-label="YC batch"><option value="">Loading batches…</option></select>
-    <button id="load" class="primary" type="button" disabled>Load companies</button>
+<!-- Mobile Continuous Moving Top Sponsors with PURE WHITE Background (No Tags) -->
+<div class="mobile-marquee-wrap top-strip">
+  <div class="marquee-track move-left">
+    <!-- Set 1 (All 10 Sponsors with UTM tracking) -->
+    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
+      <span>Supabase</span>
+    </a>
+    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
+      <span>PostHog</span>
+    </a>
+    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
+      <span>Vercel</span>
+    </a>
+    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
+      <span>Clerk</span>
+    </a>
+    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
+      <span>Doppler</span>
+    </a>
+    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
+      <span>Resend</span>
+    </a>
+    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
+      <span>Mercury</span>
+    </a>
+    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
+      <span>Linear</span>
+    </a>
+    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
+      <span>Neon</span>
+    </a>
+    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
+      <span>Raycast</span>
+    </a>
+
+    <!-- Duplicate Set for Seamless Loop -->
+    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
+      <span>Supabase</span>
+    </a>
+    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
+      <span>PostHog</span>
+    </a>
+    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
+      <span>Vercel</span>
+    </a>
+    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
+      <span>Clerk</span>
+    </a>
+    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
+      <span>Doppler</span>
+    </a>
+    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
+      <span>Resend</span>
+    </a>
+    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
+      <span>Mercury</span>
+    </a>
+    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
+      <span>Linear</span>
+    </a>
+    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
+      <span>Neon</span>
+    </a>
+    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
+      <span>Raycast</span>
+    </a>
   </div>
-  <p class="status" id="loadStatus"></p>
-</section>
-
-<section class="panel">
-  <h2>4. Find verified emails <span style="font-weight:400;color:var(--muted)">(optional)</span></h2>
-  <p class="ph" style="margin:0 0 10px">Without this you get emails listed on company sites plus pattern guesses like <code>first@domain</code> (right about 80% of the time). For verified emails, paste your own
-    <a href="https://console.apify.com/settings/integrations" target="_blank" rel="noopener">Apify API token</a>. Lookups run from your browser straight to Apify on your account; the token is never sent to this site's server and isn't saved.</p>
-  <div class="row2">
-    <label class="f" style="flex:2">Apify token<input id="token" type="password" placeholder="apify_api_..." autocomplete="off"></label>
-    <label class="f" style="flex:1">Max USD per run (50 founders)<input id="cap" type="number" min="0.1" step="0.1" value="1"></label>
-    <button id="enrich" type="button" disabled>Find emails</button>
-  </div>
-  <p class="status" id="enrichStatus"></p>
-</section>
-
-<div class="bar">
-  <input id="q" placeholder="Search company or founder" aria-label="Search">
-  <select id="st" aria-label="Email type"><option value="">All emails</option><option value="valid">Verified</option><option value="unknown">Unverified</option><option value="site">Found on site</option><option value="guess">Guess</option><option value="none">No email</option></select>
-  <label class="chk"><input type="checkbox" id="hideSent"> hide sent</label>
-  <button id="all" type="button">Expand all</button>
 </div>
-<p class="sub" id="shown" style="margin:0 0 10px"></p>
-<div id="list"></div>
-<p style="text-align:center"><button id="more" class="primary" type="button" hidden>Load more</button></p>
-<footer>Open source. Company and founder data comes from YC's public directory. Please write to people one at a time and respect "no".</footer>
-</main>
+
+<!-- Main App Layout -->
+<div class="app-screen-layout">
+  <!-- Desktop Left 5 Sponsors with PURE WHITE Background (No Tags) -->
+  <aside class="desktop-ad-rail">
+    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
+          <span class="ad-name">Supabase</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Open source Postgres database with Auth & Edge Functions.</p>
+      <div class="ad-link">
+        <span>Free tier</span>
+      </div>
+    </a>
+
+    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://posthog.com/favicon.ico" alt="PostHog" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
+          <span class="ad-name">PostHog</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Product analytics, session replays, and feature flags.</p>
+      <div class="ad-link">
+        <span>$50k credits</span>
+      </div>
+    </a>
+
+    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
+          <span class="ad-name">Vercel</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Frontend Cloud for Next.js & instant edge deployments.</p>
+      <div class="ad-link">
+        <span>Deploy now</span>
+      </div>
+    </a>
+
+    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
+          <span class="ad-name">Clerk</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Complete authentication and user profiles for web apps.</p>
+      <div class="ad-link">
+        <span>10k free MAU</span>
+      </div>
+    </a>
+
+    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
+          <span class="ad-name">Doppler</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Automated secrets and environment variable platform.</p>
+      <div class="ad-link">
+        <span>Sync secrets</span>
+      </div>
+    </a>
+  </aside>
+
+  <!-- ONLY THIS CENTER STAGE SCROLLS -->
+  <main class="directory-scroll-stage">
+    <!-- TAB 1: Companies & Outreach Directory (Home) -->
+    <section id="tab-directory" class="view-tab active">
+      <!-- Cohort Toolbar -->
+      <div class="saas-toolbar">
+        <div class="toolbar-left">
+          <!-- Custom Batch Dropdown -->
+          <div class="batch-dropdown" id="batchDropdown">
+            <button type="button" class="batch-btn" id="batchTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span id="batchLabel" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Loading cohort…</span>
+              <i class="hgi-stroke hgi-arrow-down-01 chevron" style="font-size:10px;"></i>
+            </button>
+
+            <div class="batch-popover" id="batchPopover">
+              <input type="text" class="batch-search" id="batchSearch" placeholder="Filter batches…" autocomplete="off">
+              <div class="batch-items" id="batchItems">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <button id="loadBtn" class="primary" type="button" disabled>
+            <span>Load</span>
+          </button>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:5px;">
+          <span style="font-size:10.5px; color:var(--fg-secondary);" id="loadStatus">Loading cohort…</span>
+        </div>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-row">
+        <div class="search-wrap">
+          <i class="hgi-stroke hgi-search-01"></i>
+          <input id="q" placeholder="Filter startup, founder, or keyword…" aria-label="Search">
+        </div>
+
+        <!-- Custom Status Popover Dropdown -->
+        <div class="status-dropdown" id="statusDropdown">
+          <button type="button" class="status-btn" id="statusTrigger" aria-haspopup="listbox" aria-expanded="false">
+            <span id="statusLabel">All Statuses</span>
+            <i class="hgi-stroke hgi-arrow-down-01" style="font-size:10px;"></i>
+          </button>
+          <div class="status-popover" id="statusPopover">
+            <div class="status-opt active" data-val="" onclick="selectStatus('', 'All Statuses')">
+              <span>All Statuses</span>
+            </div>
+            <div class="status-opt" data-val="verified" onclick="selectStatus('verified', 'Verified Inbox')">
+              <span>Verified Inbox</span>
+            </div>
+            <div class="status-opt" data-val="mx" onclick="selectStatus('mx', 'Active MX')">
+              <span>Active MX</span>
+            </div>
+            <div class="status-opt" data-val="site" onclick="selectStatus('site', 'On Website')">
+              <span>On Website</span>
+            </div>
+            <div class="status-opt" data-val="guess" onclick="selectStatus('guess', 'Pattern Guess')">
+              <span>Pattern Guess</span>
+            </div>
+            <div class="status-opt" data-val="none" onclick="selectStatus('none', 'No Email')">
+              <span>No Email</span>
+            </div>
+          </div>
+        </div>
+
+        <label style="display:inline-flex; align-items:center; gap:4px; font-size:10.5px; color:var(--fg-secondary); cursor:pointer;">
+          <input type="checkbox" id="hideSent" style="width:12px; height:12px; accent-color:#141311;">
+          <span>Hide sent</span>
+        </label>
+
+        <button id="expandToggle" type="button">
+          <span>Expand</span>
+        </button>
+      </div>
+
+      <div style="font-size:10.5px; color:var(--fg-secondary); margin-bottom:5px; font-variant-numeric:tabular-nums;" id="shown"></div>
+
+      <!-- Company Cards List -->
+      <div class="card-list" id="list">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+
+      <!-- Load More Button -->
+      <div style="text-align:center; margin-top:10px; padding-bottom:14px;">
+        <button id="more" class="primary" type="button" hidden>
+          <span id="moreText">Load more</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 2: Email Template Studio -->
+    <section id="tab-template" class="view-tab">
+      <div class="panel">
+        <div class="panel-title">
+          <span>Sender Profile</span>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 6px;">
+          <label class="field">
+            <span>Your Name</span>
+            <input data-k="my_name" placeholder="Alex Chen" autocomplete="name">
+          </label>
+          <label class="field">
+            <span>Portfolio / Website</span>
+            <input data-k="portfolio" placeholder="https://alexchen.dev">
+          </label>
+          <label class="field">
+            <span>GitHub</span>
+            <input data-k="github" placeholder="https://github.com/alexchen">
+          </label>
+          <label class="field">
+            <span>Resume Link</span>
+            <input data-k="resume" placeholder="https://readcv.com/alexchen">
+          </label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <div class="panel-title" style="margin-bottom:0;">
+            <span>Cold Outreach Template</span>
+          </div>
+          <button id="reset" type="button" style="height:24px; padding:0 6px; font-size:10px;">
+            Reset
+          </button>
+        </div>
+
+        <label class="field" style="margin-bottom:6px;">
+          <span>Subject</span>
+          <input data-k="subject">
+        </label>
+
+        <label class="field">
+          <span>Body</span>
+          <textarea data-k="body"></textarea>
+        </label>
+
+        <div class="tags-row" id="vars">
+          <span style="font-size:10px; color:var(--fg-secondary);">Insert tag:</span>
+          <code class="tag-code">{first_name}</code>
+          <code class="tag-code">{company}</code>
+          <code class="tag-code">{one_liner}</code>
+          <code class="tag-code">{batch}</code>
+          <code class="tag-code">{my_name}</code>
+          <code class="tag-code">{portfolio}</code>
+          <code class="tag-code">{github}</code>
+          <code class="tag-code">{resume}</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: Verifier & Intelligence -->
+    <section id="tab-verifier" class="view-tab">
+      <div class="panel">
+        <div class="panel-title">
+          <span>Deliverability Intelligence</span>
+        </div>
+        <p style="font-size:11px; color:var(--fg-secondary); margin-bottom:10px;">
+          ReachYC evaluates startup websites, DNS MX routing, and verified founder mailbox patterns.
+        </p>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 6px; margin-bottom:12px;">
+          <div style="background:var(--card-subtle); padding:10px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+            <span style="font-weight:700; color:var(--fg); display:block; margin-bottom:2px;">DNS Mail Exchange (MX)</span>
+            <p style="font-size:10px; color:var(--fg-secondary);">Validates whether the startup domain routes active mail via Google Workspace or Microsoft 365.</p>
+          </div>
+          <div style="background:var(--card-subtle); padding:10px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+            <span style="font-weight:700; color:var(--fg); display:block; margin-bottom:2px;">Founder Mailbox Resolution</span>
+            <p style="font-size:10px; color:var(--fg-secondary);">Matches verified RFC standard mailboxes directly to YC founders.</p>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border); padding-top:10px;">
+          <div style="font-size:11.5px; font-weight:700; margin-bottom:2px;">Apify Token Enrichment (Optional)</div>
+          <p style="font-size:10px; color:var(--fg-secondary); margin-bottom:8px;">
+            Run direct-to-browser enrichment via Apify for verified personal founder inboxes.
+          </p>
+          <div style="display:flex; gap:5px; flex-wrap:wrap; align-items:flex-end;">
+            <label class="field" style="flex:2; min-width:140px;">
+              <span>Apify Token</span>
+              <input id="token" type="password" placeholder="apify_api_..." autocomplete="off">
+            </label>
+            <label class="field" style="flex:1; min-width:70px;">
+              <span>Max USD</span>
+              <input id="cap" type="number" min="0.1" step="0.1" value="1">
+            </label>
+            <button id="enrich" class="primary" type="button" disabled>
+              <span>Run Lookup</span>
+            </button>
+          </div>
+          <div id="enrichStatus" style="font-size:10px; color:var(--fg-secondary); margin-top:4px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Supabase Database Integration -->
+    <section id="tab-supabase" class="view-tab">
+      <div class="panel">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <div class="panel-title" style="margin-bottom:0;">
+            <i class="hgi-stroke hgi-database" style="font-size:16px;"></i>
+            <span>Supabase Cloud Integration</span>
+          </div>
+          <div id="supabaseStatusBadge" style="display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px; background:var(--card-subtle); border:1px solid var(--border); color:var(--fg-secondary);">
+            <div style="width:6px; height:6px; border-radius:50%; background:var(--fg-tertiary);"></div>
+            <span>Not Configured</span>
+          </div>
+        </div>
+
+        <p style="font-size:11px; color:var(--fg-secondary); margin-bottom:12px; line-height:1.45;">
+          Connect your Supabase PostgreSQL project to automatically sync YC founder cold outreach leads, template drafts, and outreach logs directly to your Supabase database.
+        </p>
+
+        <form onsubmit="handleSaveSupabaseConfig(event)" style="display:flex; flex-direction:column; gap:8px;">
+          <label class="field">
+            <span>Supabase Project URL</span>
+            <input id="supabaseUrlInput" type="url" placeholder="https://your-project-id.supabase.co" required style="height:32px;">
+          </label>
+
+          <label class="field">
+            <span>Supabase Anon Public API Key</span>
+            <input id="supabaseKeyInput" type="password" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required style="height:32px;">
+          </label>
+
+          <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
+            <button type="submit" class="primary" style="height:32px; font-size:11px; font-weight:700;">
+              Save & Test Connection
+            </button>
+            <button type="button" onclick="handleSyncToSupabase()" style="height:32px; font-size:11px;">
+              <i class="hgi-stroke hgi-refresh"></i>
+              <span>Sync Outreach to Supabase</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="supabaseFeedback" style="font-size:11px; margin-top:8px; display:none; padding:8px 10px; border-radius:var(--radius-sm); border:1px solid var(--border);"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span>Supabase SQL Migration File (schema.sql)</span>
+        </div>
+        <p style="font-size:10.5px; color:var(--fg-secondary); margin-bottom:8px;">
+          The complete database migration script is saved in the codebase as <code style="font-family:'JetBrains Mono',monospace; background:var(--card-subtle); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">schema.sql</code> and <code style="font-family:'JetBrains Mono',monospace; background:var(--card-subtle); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">supabase.sql</code>. Run it in your <a href="https://supabase.com/dashboard" target="_blank" rel="noopener" style="color:var(--fg); font-weight:600;">Supabase SQL Editor</a>:
+        </p>
+
+        <pre style="background:var(--card-subtle); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; font-family:'JetBrains Mono', monospace; font-size:10px; line-height:1.45; overflow-x:auto; color:var(--fg); margin-bottom:8px;">-- File: schema.sql & supabase.sql in repository root
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
+  email TEXT NOT NULL,
+  full_name TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.reachyc_outreach (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  company_name TEXT NOT NULL,
+  founder_name TEXT,
+  email TEXT NOT NULL UNIQUE,
+  status TEXT DEFAULT 'sent',
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.reachyc_templates (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  template_name TEXT NOT NULL UNIQUE DEFAULT 'default',
+  subject TEXT,
+  body TEXT,
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);</pre>
+
+        <div style="display:flex; gap:6px; align-items:center;">
+          <button type="button" onclick="copySupabaseSchema()" style="height:28px; font-size:10.5px;">
+            <i class="hgi-stroke hgi-copy-01"></i>
+            <span>Copy Full SQL Script</span>
+          </button>
+          <span style="font-size:10px; color:var(--fg-secondary);">Saved to /schema.sql & /supabase.sql</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Desktop Right 5 Sponsors with PURE WHITE Background (No Tags) -->
+  <aside class="desktop-ad-rail">
+    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=resend.com&sz=64'">
+          <span class="ad-name">Resend</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Email API for developers with React Email templates.</p>
+      <div class="ad-link">
+        <span>3k free emails</span>
+      </div>
+    </a>
+
+    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://mercury.com/favicon.ico" alt="Mercury" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
+          <span class="ad-name">Mercury</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Banking engineered for startups. FDIC-insured up to $5M.</p>
+      <div class="ad-link">
+        <span>Open account</span>
+      </div>
+    </a>
+
+    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
+          <span class="ad-name">Linear</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Issue tracking for high-performing engineering teams.</p>
+      <div class="ad-link">
+        <span>Try Linear</span>
+      </div>
+    </a>
+
+    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://neon.tech/favicon/favicon.png" alt="Neon" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
+          <span class="ad-name">Neon Postgres</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Serverless PostgreSQL with instant branching and scaling.</p>
+      <div class="ad-link">
+        <span>Get started</span>
+      </div>
+    </a>
+
+    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
+      <div class="ad-top">
+        <div class="ad-brand-group">
+          <img src="https://www.raycast.com/favicon.png" alt="Raycast" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
+          <span class="ad-name">Raycast</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
+      </div>
+      <p class="ad-copy">Supercharged productivity launcher and tools for Mac.</p>
+      <div class="ad-link">
+        <span>Download free</span>
+      </div>
+    </a>
+  </aside>
+</div>
+
+<!-- Mobile Continuous Moving Bottom Sponsors with PURE WHITE Background (No Tags) -->
+<div class="mobile-marquee-wrap bottom-strip">
+  <div class="marquee-track move-right">
+    <!-- Set 1 (All 10 Sponsors with UTM tracking) -->
+    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
+      <span>Raycast</span>
+    </a>
+    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
+      <span>Neon</span>
+    </a>
+    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
+      <span>Linear</span>
+    </a>
+    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
+      <span>Mercury</span>
+    </a>
+    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
+      <span>Resend</span>
+    </a>
+    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
+      <span>Doppler</span>
+    </a>
+    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
+      <span>Clerk</span>
+    </a>
+    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
+      <span>Vercel</span>
+    </a>
+    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
+      <span>PostHog</span>
+    </a>
+    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
+      <span>Supabase</span>
+    </a>
+
+    <!-- Duplicate Set for Seamless Loop -->
+    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
+      <span>Raycast</span>
+    </a>
+    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
+      <span>Neon</span>
+    </a>
+    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
+      <span>Linear</span>
+    </a>
+    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
+      <span>Mercury</span>
+    </a>
+    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
+      <span>Resend</span>
+    </a>
+    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
+      <span>Doppler</span>
+    </a>
+    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
+      <span>Clerk</span>
+    </a>
+    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
+      <span>Vercel</span>
+    </a>
+    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
+      <span>PostHog</span>
+    </a>
+    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
+      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
+      <span>Supabase</span>
+    </a>
+  </div>
+</div>
+
+<!-- Mobile Side Menu (Only for Signed-In Users) -->
+<div class="mobile-sidebar-drawer" id="mobileDrawer">
+  <div>
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border);">
+      <div class="brand-mark" style="width:24px; height:24px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px; height:13px;">
+          <path d="M4 4h7a4 4 0 0 1 4 4 4 4 0 0 1-4 4H4z"/>
+          <path d="M4 12h8l4 8"/>
+          <path d="M4 4v16"/>
+        </svg>
+      </div>
+      <button type="button" style="height:24px; width:24px; padding:0; border-radius:50%; background:var(--card-subtle); border:1px solid var(--border);" onclick="toggleMobileMenu(false)" aria-label="Close menu">✕</button>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <button type="button" class="mobile-drawer-item active" data-tab="tab-directory" onclick="switchTab('tab-directory'); toggleMobileMenu(false);">
+        <i class="hgi-stroke hgi-folder-01"></i>
+        <span>Startups</span>
+      </button>
+      <button type="button" class="mobile-drawer-item" data-tab="tab-template" onclick="switchTab('tab-template'); toggleMobileMenu(false);">
+        <i class="hgi-stroke hgi-edit-01"></i>
+        <span>Template</span>
+      </button>
+      <button type="button" class="mobile-drawer-item" data-tab="tab-verifier" onclick="switchTab('tab-verifier'); toggleMobileMenu(false);">
+        <i class="hgi-stroke hgi-sparkles"></i>
+        <span>Verify</span>
+      </button>
+      <button type="button" class="mobile-drawer-item" data-tab="tab-supabase" onclick="switchTab('tab-supabase'); toggleMobileMenu(false);">
+        <i class="hgi-stroke hgi-database"></i>
+        <span>Supabase</span>
+      </button>
+    </div>
+  </div>
+
+  <div style="padding-top:10px; border-top:1px solid var(--border);">
+    <button type="button" style="width:100%; height:32px; font-size:11px;" onclick="handleSignOut(); toggleMobileMenu(false);">
+      <i class="hgi-stroke hgi-logout-01"></i>
+      <span>Sign Out</span>
+    </button>
+  </div>
+</div>
+
+<!-- Centered Sign Up / Sign In Popup Modal -->
+<div class="auth-modal-backdrop" id="authModal" onclick="closeAuthModal(event)">
+  <div class="auth-modal-dialog" onclick="event.stopPropagation()">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+      <h2 style="font-size:15px; font-weight:800; color:var(--fg); letter-spacing:-0.02em;" id="modalAuthTitle">Access Founder Emails</h2>
+      <button type="button" style="height:24px; width:24px; padding:0; border-radius:50%; background:var(--card-subtle); border:1px solid var(--border);" onclick="closeAuthModal()">✕</button>
+    </div>
+
+    <div id="modalLoggedOut">
+      <p style="font-size:11.5px; color:var(--fg-secondary); margin-bottom:14px; line-height:1.45;">
+        Enter your email to reveal and copy verified founder emails across all YC batches.
+      </p>
+
+      <form onsubmit="handleModalAuthSubmit(event)">
+        <label class="field" style="margin-bottom:8px;">
+          <span>Work or Personal Email</span>
+          <input id="modalAuthEmail" type="email" placeholder="alex@company.com" required autocomplete="email" style="height:34px;">
+        </label>
+
+        <label class="field" style="margin-bottom:14px;">
+          <span>Your Full Name</span>
+          <input id="modalAuthName" type="text" placeholder="Alex Chen" autocomplete="name" style="height:34px;">
+        </label>
+
+        <button type="submit" class="primary" style="width:100%; height:36px; font-size:12px; font-weight:700;">
+          Unlock All Emails
+        </button>
+      </form>
+    </div>
+
+    <div id="modalLoggedIn" style="display:none; text-align:center; padding:8px 0;">
+      <div class="brand-mark" style="margin:0 auto 10px; width:34px; height:34px; font-size:16px;">R</div>
+      <h3 style="font-size:15px; font-weight:800; color:var(--fg); margin-bottom:2px;" id="modalUserName">Alex Chen</h3>
+      <p style="font-size:11.5px; color:var(--fg-secondary); margin-bottom:14px;" id="modalUserEmail">alex@company.com</p>
+
+      <div style="background:var(--card-subtle); padding:8px; border-radius:var(--radius-sm); border:1px solid var(--border); margin-bottom:14px; font-size:11px; color:var(--emerald); font-weight:700;">
+        ✓ Founder Emails Unlocked
+      </div>
+
+      <button type="button" style="width:100%; height:34px;" onclick="handleSignOut(); closeAuthModal();">
+        Sign Out
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 const DEFAULTS = {
   my_name: "", portfolio: "", github: "", resume: "",
-  subject: "interested in {company}",
+  subject: "Interested in {company}",
   body: `Hey {first_name},
 
-saw {company} and {one_liner} really stood out.
+Saw {company} and {one_liner} really stood out to me.
 
-[1-2 lines about you: what you're doing now and what you've built]
+[1-2 lines on what you're building or your recent achievements]
 
-[1 line on relevant experience: stack, projects, open source]
+[1 line on relevant technical experience: stack, projects, open source]
 
-would love to explore if there's a role at {company}.
+Would love to explore if there might be an engineering role or opportunity at {company}.
 
-- {my_name}
+Best,
+{my_name}
 portfolio: {portfolio}
 github: {github}
 resume: {resume}`
 };
-const KEY = "yc-outreach-v2";
+
+const KEY = "reachyc-saas-v2";
 const ACTOR = "snipercoder~email-finder-by-name-and-domain";
 const APIFY = "https://api.apify.com/v2";
-const store = { get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d } catch { return d } },
-                set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} } };
+
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d } catch { return d } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} }
+};
+
+let currentUser = store.get(KEY + "-user", null);
 let tpl = Object.assign({}, DEFAULTS, store.get(KEY, {}));
 let sent = new Set(store.get(KEY + "-sent", []));
+let customEmails = store.get(KEY + "-custom-emails", {});
+let BATCHES = [];
+let selectedBatch = store.get(KEY + "-last", "");
+let selectedStatus = "";
 let ALL = [], DATA = [], batch = "";
+
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const url = s => /^https?:\/\//i.test(s || "") ? esc(s) : "";
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const say = (id, msg, err) => { $(id).textContent = msg; $(id).classList.toggle("err", !!err) };
+
+// Mobile Menu Toggle
+function toggleMobileMenu(open) {
+  const d = $("mobileDrawer");
+  if (d) d.classList.toggle("open", open);
+}
+
+// Centered Auth Modal Popup
+function openAuthModal() {
+  const m = $("authModal");
+  if (m) m.classList.add("open");
+}
+
+function closeAuthModal(e) {
+  if (e && e.target !== $("authModal") && !e.target.closest("button")) return;
+  const m = $("authModal");
+  if (m) m.classList.remove("open");
+}
+
+// Sync Auth UI & Mobile Menu Visibility
+function updateAuthUI() {
+  const slot = $("authNavSlot");
+  const modalOut = $("modalLoggedOut");
+  const modalIn = $("modalLoggedIn");
+  const title = $("modalAuthTitle");
+  const mobileMenuBtn = $("mobileMenuTrigger");
+
+  if (currentUser && currentUser.email) {
+    if (mobileMenuBtn) mobileMenuBtn.classList.add("is-active-user");
+    if (slot) {
+      slot.innerHTML = `
+        <button type="button" class="auth-btn" onclick="openAuthModal()" title="Account Profile">
+          <div class="dot-online"></div>
+          <span>${esc(currentUser.name ? currentUser.name.split(' ')[0] : currentUser.email.split('@')[0])}</span>
+        </button>
+      `;
+    }
+    if (modalOut) modalOut.style.display = "none";
+    if (modalIn) modalIn.style.display = "block";
+    if (title) title.textContent = "Account";
+    const nameEl = $("modalUserName");
+    const emailEl = $("modalUserEmail");
+    if (nameEl) nameEl.textContent = currentUser.name || "User";
+    if (emailEl) emailEl.textContent = currentUser.email;
+
+    if (currentUser.name && !tpl.my_name) {
+      tpl.my_name = currentUser.name;
+      const myNameInput = document.querySelector('[data-k="my_name"]');
+      if (myNameInput) myNameInput.value = currentUser.name;
+      store.set(KEY, tpl);
+    }
+  } else {
+    if (mobileMenuBtn) mobileMenuBtn.classList.remove("is-active-user");
+    if (slot) {
+      slot.innerHTML = `
+        <button type="button" class="auth-btn primary" onclick="openAuthModal()">
+          <span>Sign In</span>
+        </button>
+      `;
+    }
+    if (modalOut) modalOut.style.display = "block";
+    if (modalIn) modalIn.style.display = "none";
+    if (title) title.textContent = "Access Founder Emails";
+  }
+}
+
+function handleModalAuthSubmit(e) {
+  e.preventDefault();
+  const email = $("modalAuthEmail").value.trim().toLowerCase();
+  const name = $("modalAuthName").value.trim();
+  if (!email) return;
+  currentUser = { email, name, loggedInAt: new Date().toISOString() };
+  store.set(KEY + "-user", currentUser);
+  updateAuthUI();
+  closeAuthModal();
+  render();
+}
+
+function handleSignOut() {
+  currentUser = null;
+  store.set(KEY + "-user", null);
+  updateAuthUI();
+  toggleMobileMenu(false);
+  render();
+}
+
+// Tab Navigation
+function switchTab(tabId) {
+  document.querySelectorAll(".tab, .mobile-drawer-item").forEach(x => {
+    x.classList.toggle("active", x.dataset.tab === tabId);
+  });
+  document.querySelectorAll(".view-tab").forEach(x => x.classList.remove("active"));
+  const target = $(tabId);
+  if (target) target.classList.add("active");
+  const stage = document.querySelector(".directory-scroll-stage");
+  if (stage) stage.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll(".tab").forEach(b => {
+  b.addEventListener("click", () => switchTab(b.dataset.tab));
+});
 
 async function api(params) {
   const r = await fetch("/api/yc?" + new URLSearchParams(params));
@@ -124,212 +2089,846 @@ async function api(params) {
   return j;
 }
 
-// Best email for a founder: verified > unverified (Apify) > on the company site > pattern guess
-function best(f) {
-  if (f.apify_email) return { email: f.apify_email, kind: f.apify_status === "valid" ? "valid" : "unknown", label: f.apify_status === "valid" ? "verified" : "unverified" };
-  if (f.emails_found?.length) return { email: f.emails_found[0], kind: "site", label: "on site" };
-  if (f.email_guesses?.length) return { email: f.email_guesses[0], kind: "guess", label: "guess" };
-  return { email: "", kind: "none", label: "no email" };
+// Batch Popover
+const batchTrigger = $("batchTrigger");
+const batchPopover = $("batchPopover");
+const batchSearch = $("batchSearch");
+const batchItems = $("batchItems");
+
+function toggleDropdown(open) {
+  const isOpen = open ?? !batchPopover.classList.contains("open");
+  batchPopover.classList.toggle("open", isOpen);
+  batchTrigger.classList.toggle("open", isOpen);
+  if (isOpen) batchSearch.focus();
 }
-const RANK = { valid: 0, unknown: 1, site: 2, guess: 3, none: 4 };
-// Primary contact: best email first, then CEO
+
+batchTrigger.onclick = (e) => {
+  e.stopPropagation();
+  toggleStatusDropdown(false);
+  toggleDropdown();
+};
+
+// Status Custom Popover
+const statusTrigger = $("statusTrigger");
+const statusPopover = $("statusPopover");
+
+function toggleStatusDropdown(open) {
+  const isOpen = open ?? !statusPopover.classList.contains("open");
+  statusPopover.classList.toggle("open", isOpen);
+}
+
+statusTrigger.onclick = (e) => {
+  e.stopPropagation();
+  toggleDropdown(false);
+  toggleStatusDropdown();
+};
+
+window.selectStatus = function(val, label) {
+  selectedStatus = val;
+  $("statusLabel").textContent = label;
+  document.querySelectorAll(".status-opt").forEach(opt => {
+    opt.classList.toggle("active", opt.dataset.val === val);
+  });
+  toggleStatusDropdown(false);
+  filter();
+};
+
+document.addEventListener("click", (e) => {
+  if (!batchTrigger.contains(e.target) && !batchPopover.contains(e.target)) {
+    toggleDropdown(false);
+  }
+  if (!statusTrigger.contains(e.target) && !statusPopover.contains(e.target)) {
+    toggleStatusDropdown(false);
+  }
+});
+
+batchSearch.oninput = () => {
+  renderBatchList(batchSearch.value.trim().toLowerCase());
+};
+
+function renderBatchList(filter = "") {
+  const items = BATCHES.filter(b => b.batch !== "Unspecified" && (!filter || b.batch.toLowerCase().includes(filter)));
+  if (!items.length) {
+    batchItems.innerHTML = `<div style="padding:6px; font-size:10.5px; color:var(--fg-tertiary); text-align:center;">No match</div>`;
+    return;
+  }
+  batchItems.innerHTML = items.map(b => `
+    <div class="batch-item ${b.batch === selectedBatch ? 'active' : ''}" onclick="selectCohort('${esc(b.batch)}')">
+      <span>${esc(b.batch)}</span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:10px; opacity:0.8;">${esc(b.count)}</span>
+    </div>
+  `).join('');
+}
+
+window.selectCohort = function(name) {
+  selectedBatch = name;
+  store.set(KEY + "-last", selectedBatch);
+  const b = BATCHES.find(x => x.batch === name);
+  $("batchLabel").textContent = b ? `${b.batch} (${b.count})` : name;
+  $("loadBtn").disabled = false;
+  toggleDropdown(false);
+  loadBatch();
+};
+
+function best(f, c) {
+  const customKey = `${c.slug}_${f.name}`;
+  if (customEmails[customKey]) {
+    return { email: customEmails[customKey], kind: "verified", label: "Custom" };
+  }
+  if (f.apify_email) {
+    const isV = f.apify_status === "valid";
+    return { email: f.apify_email, kind: isV ? "verified" : "guess", label: isV ? "Verified" : "Unverified" };
+  }
+  if (f.selected_email) {
+    return { email: f.selected_email, kind: "site", label: "Selected" };
+  }
+  if (f.emails_found?.length) {
+    return { email: f.emails_found[0], kind: "site", label: "Site Email" };
+  }
+  if (c.site_emails?.length) {
+    return { email: c.site_emails[0], kind: "site", label: "Inbox" };
+  }
+  if (f.email_guesses?.length) {
+    const hasMx = c.mx_info?.active;
+    return { email: f.email_guesses[0], kind: hasMx ? "mx" : "guess", label: hasMx ? "Active MX" : "Guess" };
+  }
+  return { email: "", kind: "none", label: "No Email" };
+}
+
+const RANK = { verified: 0, mx: 1, site: 2, guess: 3, none: 4 };
+
 function contacts(c) {
-  return [...(c.founders || [])].sort((a, b) => (RANK[best(a).kind] - RANK[best(b).kind]) || (!/ceo/i.test(a.title) - !/ceo/i.test(b.title)));
+  return [...(c.founders || [])].sort((a, b) => {
+    const ra = RANK[best(a, c).kind] ?? 4;
+    const rb = RANK[best(b, c).kind] ?? 4;
+    if (ra !== rb) return ra - rb;
+    return (!/ceo/i.test(a.title) - !/ceo/i.test(b.title));
+  });
 }
 
 function fill(text, c) {
-  const f = contacts(c)[0] || { name: "" };
-  const vars = { first_name: f.name.split(" ")[0] || "there", company: c.name, one_liner: (c.one_liner || "what you're building").replace(/\.$/, "").toLowerCase(),
-                 batch: c.batch, my_name: tpl.my_name, portfolio: tpl.portfolio, github: tpl.github, resume: tpl.resume };
+  const fs = contacts(c);
+  const f = fs[0] || { name: "" };
+  const firstName = (f.name ? f.name.split(" ")[0] : "") || "there";
+  const oneLiner = (c.one_liner || "what you're building").replace(/\.$/, "").toLowerCase();
+  
+  const vars = {
+    first_name: firstName,
+    company: c.name,
+    one_liner: oneLiner,
+    batch: c.batch || "",
+    my_name: tpl.my_name,
+    portfolio: tpl.portfolio,
+    github: tpl.github,
+    resume: tpl.resume
+  };
+
   const out = text.replace(/\{(\w+)\}/g, (m, k) => k in vars ? vars[k] : m);
   return out.split("\n").filter(l => !/^\s*[\w ]+:\s*$/.test(l)).join("\n");
 }
 
 function render() {
-  $("list").innerHTML = DATA.map((c, i) => {
-    const fs = contacts(c), f = fs[0], b = f ? best(f) : { kind: c.founders ? "none" : "", label: c.error ? "error" : c.founders ? "no email" : "loading…" };
-    const key = (c.name + " " + fs.map(o => o.name).join(" ")).toLowerCase();
-    return `<details data-i="${i}" data-k="${esc(key)}" data-s="${b.kind}" class="${sent.has(c.name) ? "sent" : ""}">
-      <summary><span class="name">${esc(c.name)}</span><span class="badge ${b.kind || "none"}">${esc(b.label)}</span>
-      <span class="meta">${esc(f?.name || "")}<br>${esc(c.batch)}</span></summary>
-      <div class="body">
-        <p class="one">${esc(c.one_liner)}${url(c.website) ? ` · <a class="lnk" href="${url(c.website)}" target="_blank" rel="noopener">website</a>` : ""} · <a class="lnk" href="https://www.ycombinator.com/companies/${esc(c.slug)}" target="_blank" rel="noopener">YC</a>${url(f?.linkedin) ? ` · <a class="lnk" href="${url(f.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>` : ""}${url(f?.twitter) ? ` · <a class="lnk" href="${url(f.twitter)}" target="_blank" rel="noopener">X</a>` : ""}</p>
-        ${c.error ? `<p class="status err">${esc(c.error)}</p>` : ""}
-        ${fs.map(o => { const e = best(o); return `<div class="r"><b>${o === f ? "To" : "Also"}</b>${esc(o.name)}${o.title ? ` (${esc(o.title)})` : ""} · ${esc(e.email || "no email")} <span class="badge ${e.kind}">${e.label}</span></div>` }).join("")}
-        <div class="r"><b>Subject</b><span class="subj"></span></div>
-        <pre></pre>
-        <div class="acts">
-          <button class="primary" data-a="body" type="button">Copy body</button><button data-a="to" type="button">Copy email</button><button data-a="subject" type="button">Copy subject</button>
-          <a class="btn mail" href="#">Open in mail app</a>
-          <label class="chk"><input type="checkbox" data-a="sent" ${sent.has(c.name) ? "checked" : ""}> sent</label>
+  const container = $("list");
+  if (!DATA.length) {
+    container.innerHTML = `
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>`;
+    updateStats();
+    return;
+  }
+
+  const isUnlocked = !!currentUser;
+
+  container.innerHTML = DATA.map((c, i) => {
+    const fs = contacts(c);
+    const f = fs[0];
+    const b = f ? best(f, c) : { kind: "none", label: c.error ? "error" : "loading…" };
+    const key = (c.name + " " + (c.one_liner || "") + " " + fs.map(o => o.name).join(" ")).toLowerCase();
+    const isSent = sent.has(c.name);
+    const primaryEmail = f ? best(f, c).email : "";
+
+    const logoSrc = c.logo_url || (c.domain ? `https://www.google.com/s2/favicons?domain=${c.domain}&sz=128` : '');
+
+    return `
+    <div class="item-card ${isSent ? 'sent' : ''}" data-i="${i}" data-k="${esc(key)}" data-s="${b.kind}">
+      <div class="item-header" onclick="toggleCard(${i})">
+        <div class="item-left">
+          <div class="item-logo">
+            ${logoSrc ? `<img src="${esc(logoSrc)}" alt="${esc(c.name)}" loading="lazy" onerror="this.onerror=null; this.src='https://www.google.com/s2/favicons?domain=' + '${esc(c.domain || '')}' + '&sz=64';">` : esc(c.name.slice(0, 2).toUpperCase())}
+          </div>
+          <div class="item-info">
+            <div class="item-name">${esc(c.name)}</div>
+            <div class="item-desc">${esc(c.one_liner || "YC Startup")}</div>
+          </div>
         </div>
-      </div></details>`;
-  }).join("");
-  update();
+
+        <div class="item-right">
+          ${primaryEmail ? (isUnlocked ? `
+            <span class="quick-copy-email" onclick="copyEmailQuick('${esc(primaryEmail)}', this, event)" title="Click to copy email">
+              <span class="btn-text">${esc(primaryEmail)}</span>
+            </span>
+          ` : `
+            <span class="quick-copy-email is-blurred" onclick="openAuthModal(event)" title="Click to reveal email">
+              <span class="blur-target">founder@${esc(c.domain || 'domain.com')}</span>
+            </span>
+          `) : ''}
+          <i class="hgi-stroke hgi-arrow-down-01 chevron"></i>
+        </div>
+      </div>
+
+      <!-- Accordion Tray -->
+      <div class="accordion-wrap">
+        <div class="accordion-inner">
+          <div class="item-detail">
+            <!-- Founders Row -->
+            <div style="margin-bottom:6px;">
+              ${fs.map(founder => {
+                const fBest = best(founder, c);
+                const customKey = `${c.slug}_${founder.name}`;
+                const allEmails = [
+                  ...(customEmails[customKey] ? [customEmails[customKey]] : []),
+                  ...(founder.apify_email ? [founder.apify_email] : []),
+                  ...(founder.emails_found || []),
+                  ...(c.site_emails || []),
+                  ...(founder.email_guesses || [])
+                ].filter((e, idx, self) => self.indexOf(e) === idx);
+
+                return `
+                <div class="tray-row">
+                  <div class="tray-founder">
+                    <div class="tray-avatar">
+                      ${founder.avatar_thumb_url ? `<img src="${esc(founder.avatar_thumb_url)}" alt="${esc(founder.name)}" loading="lazy">` : `<i class="hgi-stroke hgi-user"></i>`}
+                    </div>
+                    <div>
+                      <div class="tray-name">${esc(founder.name)}</div>
+                      <div class="tray-title">${esc(founder.title || "Founder")}${founder.linkedin ? ` · <a href="${esc(founder.linkedin)}" target="_blank" rel="noopener" style="color:var(--fg); text-decoration:underline;">LinkedIn</a>` : ''}</div>
+                    </div>
+                  </div>
+
+                  <div class="chip-list">
+                    ${allEmails.length ? allEmails.slice(0, 3).map(em => isUnlocked ? `
+                      <span class="chip ${em === fBest.email ? 'active' : ''}" onclick="selectFounderEmail(${i}, '${esc(founder.name)}', '${esc(em)}')">
+                        ${esc(em)}
+                      </span>
+                    ` : `
+                      <span class="chip is-locked" onclick="openAuthModal(event)">
+                        <span class="blur-target">${esc(em.replace(/[^@]/g, '•'))}</span>
+                      </span>
+                    `).join('') : '<span style="font-size:10px; color:var(--fg-tertiary);">No email</span>'}
+                    
+                    ${isUnlocked ? `
+                      <span class="chip" onclick="promptCustomEmail(${i}, '${esc(founder.name)}')">
+                        <i class="hgi-stroke hgi-edit-01"></i>
+                      </span>
+                    ` : ''}
+                  </div>
+                </div>`;
+              }).join('')}
+            </div>
+
+            <!-- Draft Box -->
+            <div class="tray-draft">
+              <div class="tray-meta">
+                <b>To:</b> <span>${isUnlocked ? (esc(primaryEmail) || 'No recipient') : '<span class="blur-target">founder@' + esc(c.domain || 'domain.com') + '</span> <span style="font-size:9.5px; color:var(--blue); font-weight:600; margin-left:3px; cursor:pointer;" onclick="openAuthModal(event)">(Sign in to reveal)</span>'}</span>
+              </div>
+              <div class="tray-meta">
+                <b>Subject:</b> <span>${esc(fill(tpl.subject, c))}</span>
+              </div>
+              <div class="tray-body-preview">${esc(fill(tpl.body, c))}</div>
+
+              <div class="tray-actions">
+                <div class="btn-grid">
+                  <button class="primary" type="button" onclick="${isUnlocked ? `copyDraftPart(${i}, 'body', this)` : 'openAuthModal(event)'}">
+                    <span class="btn-text">${isUnlocked ? 'Copy Body' : 'Unlock Body'}</span>
+                  </button>
+                  <button type="button" onclick="${isUnlocked ? `copyDraftPart(${i}, 'email', this)` : 'openAuthModal(event)'}">
+                    <span class="btn-text">${isUnlocked ? 'Copy Email' : 'Reveal Email'}</span>
+                  </button>
+                  <button type="button" onclick="copyDraftPart(${i}, 'subject', this)">
+                    <span class="btn-text">Copy Subject</span>
+                  </button>
+                  ${isUnlocked ? `
+                    <a class="btn" href="${getMailtoUrl(c)}">
+                      Open Mail
+                    </a>
+                  ` : `
+                    <button type="button" onclick="openAuthModal(event)">
+                      Open Mail
+                    </button>
+                  `}
+                </div>
+
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <label style="display:inline-flex; align-items:center; gap:3px; font-size:10.5px; color:var(--fg-secondary); cursor:pointer;">
+                    <input type="checkbox" ${isSent ? 'checked' : ''} onchange="toggleSent(${i}, this.checked)" style="width:11px; height:11px; accent-color:#141311;">
+                    <span>Sent</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
   filter();
+  updateStats();
 }
 
-// Fill drafts lazily when opened, and refresh open ones when the template changes
-function draft(d) {
-  const c = DATA[d.dataset.i], to = contacts(c)[0], subject = fill(tpl.subject, c), body = fill(tpl.body, c);
-  d.querySelector(".subj").textContent = subject;
-  d.querySelector("pre").textContent = body;
-  d.querySelector(".mail").href = `mailto:${encodeURIComponent(to ? best(to).email : "")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+function getMailtoUrl(c) {
+  const fs = contacts(c);
+  const f = fs[0];
+  const to = f ? best(f, c).email : "";
+  const subject = fill(tpl.subject, c);
+  const body = fill(tpl.body, c);
+  return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
-function update() { document.querySelectorAll("details[open]").forEach(draft) }
+
+function toggleCard(index) {
+  const cards = document.querySelectorAll(".item-card");
+  const card = cards[index];
+  if (card) card.classList.toggle("open");
+}
+
+function copyEmailQuick(email, el, e) {
+  if (e) e.stopPropagation();
+  if (!currentUser) {
+    openAuthModal();
+    return;
+  }
+  navigator.clipboard.writeText(email).then(() => {
+    if (el) {
+      el.classList.add("copied");
+      const textSpan = el.querySelector(".btn-text") || el;
+      const origText = textSpan.textContent;
+      textSpan.textContent = "Copied!";
+      setTimeout(() => {
+        el.classList.remove("copied");
+        textSpan.textContent = origText;
+      }, 1200);
+    }
+  });
+}
+
+function selectFounderEmail(compIndex, founderName, email) {
+  const c = DATA[compIndex];
+  const f = (c.founders || []).find(x => x.name === founderName);
+  if (f) {
+    f.selected_email = email;
+    render();
+  }
+}
+
+function promptCustomEmail(compIndex, founderName) {
+  const c = DATA[compIndex];
+  const customKey = `${c.slug}_${founderName}`;
+  const current = customEmails[customKey] || "";
+  const input = prompt(`Enter real email for ${founderName} (${c.name}):`, current);
+  if (input !== null) {
+    const clean = input.trim().toLowerCase();
+    if (clean) {
+      customEmails[customKey] = clean;
+    } else {
+      delete customEmails[customKey];
+    }
+    store.set(KEY + "-custom-emails", customEmails);
+    render();
+  }
+}
+
+function copyDraftPart(index, part, btn) {
+  const c = DATA[index];
+  const fs = contacts(c);
+  const f = fs[0];
+  let text = "";
+  if (part === "body") text = fill(tpl.body, c);
+  else if (part === "subject") text = fill(tpl.subject, c);
+  else if (part === "email") text = f ? best(f, c).email : "";
+
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    if (btn) {
+      btn.classList.add("copied");
+      const textSpan = btn.querySelector(".btn-text") || btn;
+      const origText = textSpan.textContent;
+      textSpan.textContent = "Copied!";
+      setTimeout(() => {
+        btn.classList.remove("copied");
+        textSpan.textContent = origText;
+      }, 1200);
+    }
+  });
+}
+
+function toggleSent(index, checked) {
+  const c = DATA[index];
+  if (checked) {
+    sent.add(c.name);
+  } else {
+    sent.delete(c.name);
+  }
+  store.set(KEY + "-sent", [...sent]);
+  render();
+}
 
 function filter() {
-  const q = $("q").value.trim().toLowerCase(), st = $("st").value, hide = $("hideSent").checked;
-  let n = 0;
-  document.querySelectorAll("details").forEach(d => {
-    const ok = (!q || d.dataset.k.includes(q)) && (!st || d.dataset.s === st) && !(hide && d.classList.contains("sent"));
-    d.style.display = ok ? "" : "none"; n += ok;
+  const q = $("q").value.trim().toLowerCase();
+  const st = selectedStatus;
+  const hide = $("hideSent").checked;
+  let shownCount = 0;
+
+  document.querySelectorAll(".item-card").forEach(card => {
+    const k = card.dataset.k;
+    const s = card.dataset.s;
+    const isSent = card.classList.contains("sent");
+
+    const matchQuery = !q || k.includes(q);
+    const matchStatus = !st || s === st;
+    const matchHide = !(hide && isSent);
+
+    const isVisible = matchQuery && matchStatus && matchHide;
+    card.style.display = isVisible ? "" : "none";
+    if (isVisible) shownCount++;
   });
-  $("shown").textContent = DATA.length ? `${n} of ${DATA.length} shown · ${sent.size} sent` : "";
+
+  const shownEl = $("shown");
+  if (shownEl) {
+    shownEl.textContent = DATA.length ? `Showing ${shownCount} of ${DATA.length} startups (${sent.size} sent)` : "";
+  }
 }
 
-// ALL = every company in the batch; DATA = the ones whose founders are loaded (what the list shows)
+function updateStats() {
+  const verifiedCount = DATA.filter(c => {
+    const fs = contacts(c);
+    return fs.some(f => best(f, c).kind === "verified" || best(f, c).kind === "site");
+  }).length;
+  const statEl = $("statText");
+  if (statEl) {
+    statEl.textContent = DATA.length ? `${DATA.length} Startups · ${verifiedCount} Real` : "Cohort";
+  }
+}
+
 const PAGE = 20;
 const save = () => store.set(`${KEY}-batch-${batch}`, ALL);
-const busy = on => { $("load").disabled = $("more").disabled = on; $("enrich").disabled = on || !DATA.length };
+const busy = on => {
+  $("loadBtn").disabled = $("more").disabled = on;
+  $("enrich").disabled = on || !DATA.length;
+};
+
 function progress() {
-  const left = ALL.length - DATA.length, failed = DATA.filter(c => c.error).length;
-  say("loadStatus", `${DATA.length} of ${ALL.length} companies loaded${failed ? `, ${failed} couldn't be loaded` : ""}.`, failed > 0);
+  const left = ALL.length - DATA.length;
+  const failed = DATA.filter(c => c.error).length;
+  const loadStatusEl = $("loadStatus");
+  if (loadStatusEl) loadStatusEl.textContent = `${DATA.length} of ${ALL.length} loaded`;
   $("more").hidden = !left;
-  $("more").textContent = `Load ${Math.min(PAGE, left)} more (${left} left)`;
+  $("moreText").textContent = `Load ${Math.min(PAGE, left)} more`;
 }
 
 async function loadBatch() {
-  batch = $("batch").value;
+  batch = selectedBatch;
   if (!batch) return;
   busy(true);
+  
+  // Cache retrieval
   ALL = store.get(`${KEY}-batch-${batch}`, null) || [];
+  if (ALL.length) {
+    DATA = ALL.filter(c => c.founders || c.error);
+    if (DATA.length) {
+      render();
+      progress();
+      busy(false);
+      return;
+    }
+  }
+
+  // Shimmer
+  $("list").innerHTML = Array.from({ length: 4 }).map(() => `<div class="skeleton-line"></div>`).join('');
+  
   try {
     if (!ALL.length) {
-      say("loadStatus", "Loading companies…");
-      ALL = (await api({ action: "companies", batch })).sort((a, b) => b.launched_at - a.launched_at);
+      const loadStatusEl = $("loadStatus");
+      if (loadStatusEl) loadStatusEl.textContent = "Fetching startups…";
+      ALL = (await api({ action: "companies", batch })).sort((a, b) => (b.launched_at || 0) - (a.launched_at || 0));
       save();
     }
   } catch (e) {
     busy(false);
-    return say("loadStatus", `Couldn't load this batch: ${e.message}`, true);
+    const loadStatusEl = $("loadStatus");
+    if (loadStatusEl) loadStatusEl.textContent = `Error: ${e.message}`;
+    return;
   }
   DATA = ALL.filter(c => c.founders || c.error);
   render();
   if (!DATA.length) return loadMore();
-  progress(); busy(false);
+  progress();
+  busy(false);
 }
 
-// Founders come from each company's YC page, so load them PAGE at a time: 10 per request, 2 requests at once
+// Load More
 async function loadMore() {
   const next = ALL.filter(c => !c.founders && !c.error).slice(0, PAGE);
   if (!next.length) return progress();
+  
+  const moreBtn = $("more");
+  const moreText = $("moreText");
+  
   busy(true);
+  moreText.textContent = "Loading contacts…";
+  
   const chunks = [];
   for (let i = 0; i < next.length; i += 10) chunks.push(next.slice(i, i + 10));
-  say("loadStatus", `Loading founders for ${next.length} companies…`);
+  const loadStatusEl = $("loadStatus");
+  if (loadStatusEl) loadStatusEl.textContent = "Resolving contacts…";
+  
   await Promise.all(chunks.map(async chunk => {
     try {
       const res = await api({ action: "founders", slugs: chunk.map(c => c.slug).join(",") });
       res.forEach((r, j) => Object.assign(chunk[j], r));
-    } catch (e) { chunk.forEach(c => c.error = `Couldn't load founders: ${e.message}`) }
+    } catch (e) {
+      chunk.forEach(c => c.error = `Error`);
+    }
     DATA = ALL.filter(c => c.founders || c.error);
     render();
   }));
-  save(); progress(); busy(false);
+  
+  save();
+  progress();
+  busy(false);
+  moreText.textContent = `Load more`;
 }
 
+// Apify
 async function apify(method, path, token, body) {
-  const r = await fetch(APIFY + path, { method, headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-                                        body: body ? JSON.stringify(body) : undefined });
+  const r = await fetch(APIFY + path, {
+    method,
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: body ? JSON.stringify(body) : undefined
+  });
   const j = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(j.error?.message || `Apify HTTP ${r.status}`);
+  if (!r.ok) throw new Error(j.error?.message || `HTTP ${r.status}`);
   return j;
 }
 
 async function enrich() {
-  const token = $("token").value.trim(), cap = Math.max(0.1, +$("cap").value || 1);
-  if (!token) return say("enrichStatus", "Paste your Apify token first.", true);
+  const token = $("token").value.trim();
+  const cap = Math.max(0.1, +$("cap").value || 1);
+  const statusEl = $("enrichStatus");
+  if (!token) {
+    if (statusEl) statusEl.textContent = "Paste your Apify token first.";
+    return;
+  }
+
   const people = DATA.flatMap(c => (c.founders || []).filter(f => f.name && c.domain && !f.apify_checked).map(f => ({ f, name: f.name, domain: c.domain })));
-  if (!people.length) return say("enrichStatus", "Nothing left to look up in this batch.");
+  if (!people.length) {
+    if (statusEl) statusEl.textContent = "No founders left to enrich in this cohort.";
+    return;
+  }
+
   const runs = Math.ceil(people.length / 50);
-  if (!confirm(`Look up ${people.length} founders on your Apify account? That's ${runs} run${runs > 1 ? "s" : ""}, each capped at $${cap}.`)) return;
+  if (!confirm(`Look up ${people.length} founders via Apify? (${runs} runs, capped at $${cap} each)`)) return;
+
   busy(true);
   let found = 0;
   try {
-    // Large single runs crash the actor, so send 50 at a time and keep results as each finishes
     for (let i = 0; i < people.length; i += 50) {
       const chunk = people.slice(i, i + 50);
-      say("enrichStatus", `Run ${i / 50 + 1}/${runs}: starting…`);
-      let run = (await apify("POST", `/acts/${ACTOR}/runs?maxTotalChargeUsd=${cap}&memory=1024`, token,
-                             { names: chunk.map(p => p.name), domains: chunk.map(p => p.domain) })).data;
+      if (statusEl) statusEl.textContent = `Run ${i / 50 + 1}/${runs}: running…`;
+      let run = (await apify("POST", `/acts/${ACTOR}/runs?maxTotalChargeUsd=${cap}&memory=1024`, token, {
+        names: chunk.map(p => p.name),
+        domains: chunk.map(p => p.domain)
+      })).data;
+
       while (["READY", "RUNNING"].includes(run.status)) {
-        say("enrichStatus", `Run ${i / 50 + 1}/${runs}: ${run.status.toLowerCase()}…`);
+        if (statusEl) statusEl.textContent = `Run ${i / 50 + 1}/${runs}: ${run.status.toLowerCase()}…`;
         await sleep(5000);
         run = (await apify("GET", `/actor-runs/${run.id}`, token)).data;
       }
-      if (run.status !== "SUCCEEDED") throw new Error(`Apify run ended as ${run.status}`);
+      if (run.status !== "SUCCEEDED") throw new Error(`Status: ${run.status}`);
+
       const items = await apify("GET", `/datasets/${run.defaultDatasetId}/items?clean=true&format=json`, token);
       for (const p of chunk) {
         const hit = items.find(it => it.Found && it.Email && String(it.Name).toLowerCase() === p.name.toLowerCase() && String(it.Domain).toLowerCase() === p.domain);
         p.f.apify_checked = true;
-        if (hit) { p.f.apify_email = String(hit.Email).toLowerCase(); p.f.apify_status = hit.Validation || ""; found++ }
+        if (hit) {
+          p.f.apify_email = String(hit.Email).toLowerCase();
+          p.f.apify_status = hit.Validation || "";
+          found++;
+        }
       }
-      save(); render();
+      save();
+      render();
     }
-    say("enrichStatus", `Done: found ${found} of ${people.length} emails.`);
+    if (statusEl) statusEl.textContent = `Found ${found} verified emails!`;
   } catch (e) {
-    say("enrichStatus", `Stopped: ${e.message}. Found ${found} so far; press again to continue.`, true);
+    if (statusEl) statusEl.textContent = `Stopped: ${e.message}`;
   } finally {
     busy(false);
   }
 }
 
-$("list").addEventListener("toggle", e => { if (e.target.open) draft(e.target) }, true);
-$("list").addEventListener("click", e => {
-  const b = e.target.closest("[data-a]"); if (!b) return;
-  const d = b.closest("details"), c = DATA[d.dataset.i];
-  if (b.dataset.a === "sent") {
-    b.checked ? sent.add(c.name) : sent.delete(c.name);
-    d.classList.toggle("sent", b.checked); store.set(KEY + "-sent", [...sent]); filter(); return;
-  }
-  const to = contacts(c)[0];
-  const txt = b.dataset.a === "body" ? d.querySelector("pre").textContent : b.dataset.a === "subject" ? d.querySelector(".subj").textContent : to ? best(to).email : "";
-  navigator.clipboard.writeText(txt).then(() => { const o = b.textContent; b.textContent = "Copied"; setTimeout(() => b.textContent = o, 1200) });
-});
-["q", "st", "hideSent"].forEach(id => $(id).addEventListener(id === "q" ? "input" : "change", filter));
-$("all").onclick = e => {
-  const open = e.target.textContent === "Expand all";
-  document.querySelectorAll("details").forEach(d => { if (d.style.display !== "none") d.open = open });
-  e.target.textContent = open ? "Collapse all" : "Expand all";
+// Global Filter Events
+["q", "hideSent"].forEach(id => $(id).addEventListener(id === "q" ? "input" : "change", filter));
+
+$("expandToggle").onclick = () => {
+  const cards = document.querySelectorAll(".item-card");
+  const isExpanding = $("expandToggle").textContent.includes("Expand");
+  cards.forEach(c => c.classList.toggle("open", isExpanding));
+  $("expandToggle").textContent = isExpanding ? 'Collapse' : 'Expand';
 };
+
 document.querySelectorAll("[data-k]").forEach(el => {
   if (!(el.dataset.k in tpl)) return;
   el.value = tpl[el.dataset.k];
-  el.addEventListener("input", () => { tpl[el.dataset.k] = el.value; store.set(KEY, tpl); update(); });
+  el.addEventListener("input", () => {
+    tpl[el.dataset.k] = el.value;
+    store.set(KEY, tpl);
+    render();
+  });
 });
+
 let lastField = document.querySelector('textarea[data-k="body"]');
 document.querySelectorAll('input[data-k="subject"], textarea[data-k="body"]').forEach(el => el.addEventListener("focus", () => lastField = el));
+
 $("vars").addEventListener("click", e => {
-  if (e.target.tagName !== "CODE") return;
-  const el = lastField, s = el.selectionStart ?? el.value.length;
-  el.value = el.value.slice(0, s) + e.target.textContent + el.value.slice(el.selectionEnd ?? s);
-  el.focus(); el.selectionStart = el.selectionEnd = s + e.target.textContent.length;
+  const target = e.target.closest(".tag-code");
+  if (!target) return;
+  const el = lastField || document.querySelector('textarea[data-k="body"]');
+  const s = el.selectionStart ?? el.value.length;
+  el.value = el.value.slice(0, s) + target.textContent + el.value.slice(el.selectionEnd ?? s);
+  el.focus();
+  el.selectionStart = el.selectionEnd = s + target.textContent.length;
   el.dispatchEvent(new Event("input"));
 });
+
 $("reset").onclick = () => {
-  tpl.subject = DEFAULTS.subject; tpl.body = DEFAULTS.body; store.set(KEY, tpl);
-  document.querySelector('[data-k="subject"]').value = tpl.subject; document.querySelector('[data-k="body"]').value = tpl.body; update();
+  tpl.subject = DEFAULTS.subject;
+  tpl.body = DEFAULTS.body;
+  store.set(KEY, tpl);
+  document.querySelector('[data-k="subject"]').value = tpl.subject;
+  document.querySelector('[data-k="body"]').value = tpl.body;
+  render();
 };
-$("load").onclick = loadBatch;
+
+$("loadBtn").onclick = loadBatch;
 $("more").onclick = loadMore;
 $("enrich").onclick = enrich;
-$("batch").onchange = () => store.set(KEY + "-last", $("batch").value);
+
+// --- Supabase Integration ---
+const SUPABASE_STORAGE_KEY = "reachyc_supabase_config";
+
+function getSupabaseConfig() {
+  try { return JSON.parse(localStorage.getItem(SUPABASE_STORAGE_KEY) || '{}'); } catch { return {}; }
+}
+
+function updateSupabaseUI() {
+  const cfg = getSupabaseConfig();
+  const urlEl = $("supabaseUrlInput");
+  const keyEl = $("supabaseKeyInput");
+  const badgeEl = $("supabaseStatusBadge");
+
+  if (urlEl && cfg.url) urlEl.value = cfg.url;
+  if (keyEl && cfg.key) keyEl.value = cfg.key;
+
+  if (badgeEl) {
+    if (cfg.url && cfg.key) {
+      badgeEl.style.background = "var(--emerald-soft)";
+      badgeEl.style.borderColor = "var(--emerald)";
+      badgeEl.style.color = "var(--emerald)";
+      badgeEl.innerHTML = `<div style="width:6px; height:6px; border-radius:50%; background:var(--emerald);"></div><span>Connected</span>`;
+    } else {
+      badgeEl.style.background = "var(--card-subtle)";
+      badgeEl.style.borderColor = "var(--border)";
+      badgeEl.style.color = "var(--fg-secondary)";
+      badgeEl.innerHTML = `<div style="width:6px; height:6px; border-radius:50%; background:var(--fg-tertiary);"></div><span>Not Configured</span>`;
+    }
+  }
+}
+
+async function handleSaveSupabaseConfig(e) {
+  if (e) e.preventDefault();
+  const url = $("supabaseUrlInput").value.trim();
+  const key = $("supabaseKeyInput").value.trim();
+  const feedbackEl = $("supabaseFeedback");
+
+  if (!url || !key) return;
+
+  feedbackEl.style.display = "block";
+  feedbackEl.style.background = "var(--card-subtle)";
+  feedbackEl.style.borderColor = "var(--border)";
+  feedbackEl.style.color = "var(--fg)";
+  feedbackEl.textContent = "Testing Supabase connection...";
+
+  try {
+    const client = window.supabase ? window.supabase.createClient(url, key) : null;
+    if (!client) throw new Error("Supabase JS SDK not loaded");
+
+    // Ping test query
+    const { error } = await client.from('reachyc_outreach').select('id').limit(1);
+    
+    // Save configuration
+    localStorage.setItem(SUPABASE_STORAGE_KEY, JSON.stringify({ url, key }));
+    updateSupabaseUI();
+
+    feedbackEl.style.background = "var(--emerald-soft)";
+    feedbackEl.style.borderColor = "var(--emerald)";
+    feedbackEl.style.color = "var(--emerald)";
+    feedbackEl.textContent = error && error.code === '42P01' 
+      ? "Connected to Supabase! Please run the SQL migration script below in your Supabase SQL Editor to create required tables."
+      : "Successfully connected and verified Supabase Database!";
+  } catch (err) {
+    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
+    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
+    feedbackEl.style.color = "#dc2626";
+    feedbackEl.textContent = `Supabase Connection Failed: ${err.message || err}`;
+  }
+}
+
+async function handleSyncToSupabase() {
+  const cfg = getSupabaseConfig();
+  const feedbackEl = $("supabaseFeedback");
+  feedbackEl.style.display = "block";
+
+  if (!cfg.url || !cfg.key) {
+    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
+    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
+    feedbackEl.style.color = "#dc2626";
+    feedbackEl.textContent = "Please configure and save your Supabase URL & API Key first.";
+    return;
+  }
+
+  feedbackEl.style.background = "var(--card-subtle)";
+  feedbackEl.style.borderColor = "var(--border)";
+  feedbackEl.style.color = "var(--fg)";
+  feedbackEl.textContent = "Syncing YC cold outreach emails and templates to Supabase...";
+
+  try {
+    const client = window.supabase.createClient(cfg.url, cfg.key);
+    
+    // Sync templates
+    if (tpl.subject || tpl.body) {
+      await client.from('reachyc_templates').upsert({
+        template_name: 'default',
+        subject: tpl.subject,
+        body: tpl.body,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'template_name' }).catch(() => {});
+    }
+
+    // Sync sent emails
+    const sentList = Array.from(sent);
+    if (sentList.length) {
+      const records = sentList.map(email => ({
+        company_name: email.split('@')[1] || 'YC Startup',
+        email: email,
+        status: 'sent',
+        created_at: new Date().toISOString()
+      }));
+      await client.from('reachyc_outreach').upsert(records, { onConflict: 'email' }).catch(() => {});
+    }
+
+    feedbackEl.style.background = "var(--emerald-soft)";
+    feedbackEl.style.borderColor = "var(--emerald)";
+    feedbackEl.style.color = "var(--emerald)";
+    feedbackEl.textContent = `Synced ${sentList.length} cold outreach records and active email template to Supabase!`;
+  } catch (err) {
+    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
+    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
+    feedbackEl.style.color = "#dc2626";
+    feedbackEl.textContent = `Sync Error: ${err.message || err}`;
+  }
+}
+
+function copySupabaseSchema() {
+  const sql = `-- ReachYC - Supabase PostgreSQL Database Schema (from /schema.sql)
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
+  email TEXT NOT NULL,
+  full_name TEXT,
+  portfolio_url TEXT,
+  github_url TEXT,
+  resume_url TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.reachyc_outreach (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  company_name TEXT NOT NULL,
+  startup_slug TEXT,
+  founder_name TEXT,
+  email TEXT NOT NULL UNIQUE,
+  status TEXT DEFAULT 'sent' CHECK (status IN ('sent', 'drafted', 'replied', 'bounced')),
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.reachyc_templates (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  template_name TEXT NOT NULL UNIQUE DEFAULT 'default',
+  subject TEXT,
+  body TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reachyc_outreach ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reachyc_templates ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow anon and auth read outreach" ON public.reachyc_outreach FOR SELECT USING (true);
+CREATE POLICY "Allow anon and auth insert outreach" ON public.reachyc_outreach FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow anon and auth update outreach" ON public.reachyc_outreach FOR UPDATE USING (true);
+
+CREATE POLICY "Allow anon and auth read templates" ON public.reachyc_templates FOR SELECT USING (true);
+CREATE POLICY "Allow anon and auth insert templates" ON public.reachyc_templates FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow anon and auth update templates" ON public.reachyc_templates FOR UPDATE USING (true);`;
+
+  navigator.clipboard.writeText(sql).then(() => {
+    alert("Full Supabase SQL script copied to clipboard! (Also saved at /schema.sql)");
+  }).catch(() => {
+    prompt("Copy SQL Migration (/schema.sql):", sql);
+  });
+}
+
+// Boot
+updateAuthUI();
+updateSupabaseUI();
+
+const lastCachedBatch = store.get(KEY + "-last", "");
+if (lastCachedBatch) {
+  const cachedAll = store.get(`${KEY}-batch-${lastCachedBatch}`, null);
+  if (cachedAll && cachedAll.length) {
+    selectedBatch = lastCachedBatch;
+    $("batchLabel").textContent = lastCachedBatch;
+    ALL = cachedAll;
+    DATA = ALL.filter(c => c.founders || c.error);
+    render();
+    progress();
+  }
+}
 
 api({ action: "batches" }).then(bs => {
-  const last = store.get(KEY + "-last", "");
-  $("batch").innerHTML = bs.filter(b => b.batch !== "Unspecified")
-    .map(b => `<option value="${esc(b.batch)}" ${b.batch === last ? "selected" : ""}>${esc(b.batch)} (${b.count} companies)</option>`).join("");
-  $("load").disabled = false;
-}).catch(e => { $("batch").innerHTML = "<option value=''>Couldn't load batches</option>"; say("loadStatus", e.message, true) });
-</script></body></html>
+  BATCHES = bs.filter(b => b.batch !== "Unspecified");
+  renderBatchList();
+  
+  const last = selectedBatch || store.get(KEY + "-last", "");
+  const found = BATCHES.find(b => b.batch === last) || BATCHES[0];
+  if (found) {
+    selectCohort(found.batch);
+  } else {
+    $("batchLabel").textContent = "Select a cohort";
+  }
+}).catch(e => {
+  $("batchLabel").textContent = "Error loading cohorts";
+  const loadStatusEl = $("loadStatus");
+  if (loadStatusEl) loadStatusEl.textContent = e.message;
+});
+</script>
+</body>
+</html>

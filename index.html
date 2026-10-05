@@ -52,9 +52,6 @@
   <!-- Hugeicons CDN -->
   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
 
-  <!-- Supabase JS Client -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <style>
     :root {
       /* Clean SaaS Creme & Pure White Palette */
@@ -309,22 +306,30 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
+      padding: 6px 14px;
       background: #ffffff !important;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       text-decoration: none;
       color: var(--fg);
-      font-size: 11.5px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 600;
       flex-shrink: 0;
       box-shadow: var(--shadow-xs);
+      cursor: pointer;
+      user-select: none;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.15s ease;
     }
-    .mobile-sponsor-pill img {
-      width: 15px;
-      height: 15px;
-      border-radius: 3px;
-      object-fit: contain;
+    .mobile-sponsor-pill:hover {
+      border-color: #141311;
+      background: #faf9f6 !important;
+    }
+    .mobile-sponsor-pill i {
+      font-size: 12px;
+      color: var(--fg);
+      line-height: 1;
     }
 
     /* Screen Layout (Desktop: Side Rails Locked, Center Scrolls) */
@@ -341,7 +346,7 @@
       overflow: hidden;
     }
 
-    /* 10 Desktop Sponsor Cards (Crisp White SaaS Cards) */
+    /* 10 Desktop Sponsor Slots (Crisp Sponsor Text + Icon) */
     .desktop-ad-rail {
       height: 100%;
       display: flex;
@@ -359,90 +364,32 @@
       background: #ffffff !important;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 8px 10px;
+      padding: 0 12px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
       text-decoration: none;
-      color: inherit;
-      transition: transform 0.18s var(--spring), border-color 0.15s ease, box-shadow 0.18s ease;
+      color: var(--fg);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.15s ease;
       box-shadow: var(--shadow-xs);
     }
     .square-sponsor-card:hover {
       border-color: #141311;
+      background: #faf9f6 !important;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(20, 19, 17, 0.06);
+      box-shadow: 0 4px 10px rgba(20, 19, 17, 0.05);
     }
-    .ad-top {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 6px;
-      width: 100%;
-    }
-    .ad-brand-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-width: 0;
-      flex: 1;
-    }
-    .ad-logo-img {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      object-fit: contain;
-      flex-shrink: 0;
-      background: #f6f4ee;
-      padding: 1px;
-    }
-    .ad-name {
-      font-size: 11.5px;
-      font-weight: 700;
+    .square-sponsor-card i {
+      font-size: 13.5px;
       color: var(--fg);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      letter-spacing: -0.02em;
-      text-align: left;
-    }
-    .ad-external-icon {
-      font-size: 10.5px;
-      color: var(--fg-tertiary);
-      transition: color 0.15s ease, transform 0.15s ease;
-      margin-left: auto;
-    }
-    .square-sponsor-card:hover .ad-external-icon {
-      color: #141311;
-      transform: translate(1px, -1px);
-    }
-    .ad-copy {
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--fg-secondary);
-      line-height: 1.35;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      margin: 2px 0 3px;
-    }
-    .ad-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 9.5px;
-      font-weight: 600;
-      color: var(--fg);
-      background: rgba(20, 19, 17, 0.04);
-      padding: 2px 6px;
-      border-radius: 4px;
-      width: fit-content;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .square-sponsor-card:hover .ad-link {
-      background: #141311;
-      color: #ffffff;
+      line-height: 1;
     }
 
     /* Center Scrollable Stage */
@@ -1219,9 +1166,6 @@
       <button class="tab" data-tab="tab-verifier">
         <span>Verify</span>
       </button>
-      <button class="tab" data-tab="tab-supabase">
-        <span>Supabase</span>
-      </button>
     </div>
 
     <!-- Right Header Action -->
@@ -1233,168 +1177,83 @@
   </div>
 </header>
 
-<!-- Mobile Continuous Moving Top Sponsors with PURE WHITE Background (No Tags) -->
+<!-- Mobile Continuous Moving Top Sponsors -->
 <div class="mobile-marquee-wrap top-strip">
   <div class="marquee-track move-left">
-    <!-- Set 1 (All 10 Sponsors with UTM tracking) -->
-    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
-      <span>Supabase</span>
-    </a>
-    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
-      <span>PostHog</span>
-    </a>
-    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
-      <span>Vercel</span>
-    </a>
-    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
-      <span>Clerk</span>
-    </a>
-    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
-      <span>Doppler</span>
-    </a>
-    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
-      <span>Resend</span>
-    </a>
-    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
-      <span>Mercury</span>
-    </a>
-    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
-      <span>Linear</span>
-    </a>
-    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
-      <span>Neon</span>
-    </a>
-    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
-      <span>Raycast</span>
-    </a>
+    <!-- Set 1 -->
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
     <!-- Duplicate Set for Seamless Loop -->
-    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
-      <span>Supabase</span>
-    </a>
-    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
-      <span>PostHog</span>
-    </a>
-    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
-      <span>Vercel</span>
-    </a>
-    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
-      <span>Clerk</span>
-    </a>
-    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
-      <span>Doppler</span>
-    </a>
-    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
-      <span>Resend</span>
-    </a>
-    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
-      <span>Mercury</span>
-    </a>
-    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
-      <span>Linear</span>
-    </a>
-    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
-      <span>Neon</span>
-    </a>
-    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
-      <span>Raycast</span>
-    </a>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
   </div>
 </div>
 
 <!-- Main App Layout -->
 <div class="app-screen-layout">
-  <!-- Desktop Left 5 Sponsors with PURE WHITE Background (No Tags) -->
+  <!-- Desktop Left 5 Sponsors with PURE WHITE Background -->
   <aside class="desktop-ad-rail">
-    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
-          <span class="ad-name">Supabase</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Open source Postgres database with Auth & Edge Functions.</p>
-      <div class="ad-link">
-        <span>Free tier</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://posthog.com/favicon.ico" alt="PostHog" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
-          <span class="ad-name">PostHog</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Product analytics, session replays, and feature flags.</p>
-      <div class="ad-link">
-        <span>$50k credits</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
-          <span class="ad-name">Vercel</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Frontend Cloud for Next.js & instant edge deployments.</p>
-      <div class="ad-link">
-        <span>Deploy now</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
-          <span class="ad-name">Clerk</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Complete authentication and user profiles for web apps.</p>
-      <div class="ad-link">
-        <span>10k free MAU</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
-          <span class="ad-name">Doppler</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Automated secrets and environment variable platform.</p>
-      <div class="ad-link">
-        <span>Sync secrets</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
   </aside>
 
   <!-- ONLY THIS CENTER STAGE SCROLLS -->
@@ -1468,10 +1327,6 @@
           <input type="checkbox" id="hideSent" style="width:12px; height:12px; accent-color:#141311;">
           <span>Hide sent</span>
         </label>
-
-        <button id="expandToggle" type="button">
-          <span>Expand</span>
-        </button>
       </div>
 
       <div style="font-size:10.5px; color:var(--fg-secondary); margin-bottom:5px; font-variant-numeric:tabular-nums;" id="shown"></div>
@@ -1595,257 +1450,133 @@
         </div>
       </div>
     </section>
-
-    <!-- TAB 4: Supabase Database Integration -->
-    <section id="tab-supabase" class="view-tab">
-      <div class="panel">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-          <div class="panel-title" style="margin-bottom:0;">
-            <i class="hgi-stroke hgi-database" style="font-size:16px;"></i>
-            <span>Supabase Cloud Integration</span>
-          </div>
-          <div id="supabaseStatusBadge" style="display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px; background:var(--card-subtle); border:1px solid var(--border); color:var(--fg-secondary);">
-            <div style="width:6px; height:6px; border-radius:50%; background:var(--fg-tertiary);"></div>
-            <span>Not Configured</span>
-          </div>
-        </div>
-
-        <p style="font-size:11px; color:var(--fg-secondary); margin-bottom:12px; line-height:1.45;">
-          Connect your Supabase PostgreSQL project to automatically sync YC founder cold outreach leads, template drafts, and outreach logs directly to your Supabase database.
-        </p>
-
-        <form onsubmit="handleSaveSupabaseConfig(event)" style="display:flex; flex-direction:column; gap:8px;">
-          <label class="field">
-            <span>Supabase Project URL</span>
-            <input id="supabaseUrlInput" type="url" placeholder="https://your-project-id.supabase.co" required style="height:32px;">
-          </label>
-
-          <label class="field">
-            <span>Supabase Anon Public API Key</span>
-            <input id="supabaseKeyInput" type="password" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required style="height:32px;">
-          </label>
-
-          <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
-            <button type="submit" class="primary" style="height:32px; font-size:11px; font-weight:700;">
-              Save & Test Connection
-            </button>
-            <button type="button" onclick="handleSyncToSupabase()" style="height:32px; font-size:11px;">
-              <i class="hgi-stroke hgi-refresh"></i>
-              <span>Sync Outreach to Supabase</span>
-            </button>
-          </div>
-        </form>
-
-        <div id="supabaseFeedback" style="font-size:11px; margin-top:8px; display:none; padding:8px 10px; border-radius:var(--radius-sm); border:1px solid var(--border);"></div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-title">
-          <span>Supabase SQL Migration File (schema.sql)</span>
-        </div>
-        <p style="font-size:10.5px; color:var(--fg-secondary); margin-bottom:8px;">
-          The complete database migration script is saved in the codebase as <code style="font-family:'JetBrains Mono',monospace; background:var(--card-subtle); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">schema.sql</code> and <code style="font-family:'JetBrains Mono',monospace; background:var(--card-subtle); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">supabase.sql</code>. Run it in your <a href="https://supabase.com/dashboard" target="_blank" rel="noopener" style="color:var(--fg); font-weight:600;">Supabase SQL Editor</a>:
-        </p>
-
-        <pre style="background:var(--card-subtle); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; font-family:'JetBrains Mono', monospace; font-size:10px; line-height:1.45; overflow-x:auto; color:var(--fg); margin-bottom:8px;">-- File: schema.sql & supabase.sql in repository root
-CREATE TABLE IF NOT EXISTS public.profiles (
-  id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
-  email TEXT NOT NULL,
-  full_name TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS public.reachyc_outreach (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  company_name TEXT NOT NULL,
-  founder_name TEXT,
-  email TEXT NOT NULL UNIQUE,
-  status TEXT DEFAULT 'sent',
-  notes TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS public.reachyc_templates (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  template_name TEXT NOT NULL UNIQUE DEFAULT 'default',
-  subject TEXT,
-  body TEXT,
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);</pre>
-
-        <div style="display:flex; gap:6px; align-items:center;">
-          <button type="button" onclick="copySupabaseSchema()" style="height:28px; font-size:10.5px;">
-            <i class="hgi-stroke hgi-copy-01"></i>
-            <span>Copy Full SQL Script</span>
-          </button>
-          <span style="font-size:10px; color:var(--fg-secondary);">Saved to /schema.sql & /supabase.sql</span>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Desktop Right 5 Sponsors with PURE WHITE Background (No Tags) -->
+  <!-- Desktop Right 5 Sponsors with PURE WHITE Background -->
   <aside class="desktop-ad-rail">
-    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=resend.com&sz=64'">
-          <span class="ad-name">Resend</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Email API for developers with React Email templates.</p>
-      <div class="ad-link">
-        <span>3k free emails</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://mercury.com/favicon.ico" alt="Mercury" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
-          <span class="ad-name">Mercury</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Banking engineered for startups. FDIC-insured up to $5M.</p>
-      <div class="ad-link">
-        <span>Open account</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
-          <span class="ad-name">Linear</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Issue tracking for high-performing engineering teams.</p>
-      <div class="ad-link">
-        <span>Try Linear</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://neon.tech/favicon/favicon.png" alt="Neon" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
-          <span class="ad-name">Neon Postgres</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Serverless PostgreSQL with instant branching and scaling.</p>
-      <div class="ad-link">
-        <span>Get started</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
-    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="square-sponsor-card">
-      <div class="ad-top">
-        <div class="ad-brand-group">
-          <img src="https://www.raycast.com/favicon.png" alt="Raycast" class="ad-logo-img" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
-          <span class="ad-name">Raycast</span>
-        </div>
-        <i class="hgi-stroke hgi-arrow-up-right-01 ad-external-icon"></i>
-      </div>
-      <p class="ad-copy">Supercharged productivity launcher and tools for Mac.</p>
-      <div class="ad-link">
-        <span>Download free</span>
-      </div>
-    </a>
+    <button type="button" class="square-sponsor-card" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
   </aside>
 </div>
 
-<!-- Mobile Continuous Moving Bottom Sponsors with PURE WHITE Background (No Tags) -->
+<!-- Mobile Continuous Moving Bottom Sponsors -->
 <div class="mobile-marquee-wrap bottom-strip">
   <div class="marquee-track move-right">
-    <!-- Set 1 (All 10 Sponsors with UTM tracking) -->
-    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
-      <span>Raycast</span>
-    </a>
-    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
-      <span>Neon</span>
-    </a>
-    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
-      <span>Linear</span>
-    </a>
-    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
-      <span>Mercury</span>
-    </a>
-    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
-      <span>Resend</span>
-    </a>
-    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
-      <span>Doppler</span>
-    </a>
-    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
-      <span>Clerk</span>
-    </a>
-    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
-      <span>Vercel</span>
-    </a>
-    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
-      <span>PostHog</span>
-    </a>
-    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
-      <span>Supabase</span>
-    </a>
+    <!-- Set 1 -->
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
 
     <!-- Duplicate Set for Seamless Loop -->
-    <a href="https://raycast.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://www.raycast.com/favicon.png" alt="Raycast" onerror="this.src='https://www.google.com/s2/favicons?domain=raycast.com&sz=64'">
-      <span>Raycast</span>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+    <button type="button" class="mobile-sponsor-pill" onclick="openSponsorModal()">
+      <i class="hgi-stroke hgi-megaphone-01"></i>
+      <span>Sponsor</span>
+    </button>
+  </div>
+</div>
+
+<!-- Centered Sponsor Inquiry Popup Modal ($199/mo) -->
+<div class="auth-modal-backdrop" id="sponsorModal" onclick="closeSponsorModal(event)">
+  <div class="auth-modal-dialog" onclick="event.stopPropagation()">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <i class="hgi-stroke hgi-megaphone-01" style="font-size:16px; color:var(--fg);"></i>
+        <h2 style="font-size:15px; font-weight:800; color:var(--fg); letter-spacing:-0.02em;">Sponsor ReachYC</h2>
+      </div>
+      <button type="button" style="height:24px; width:24px; padding:0; border-radius:50%; background:var(--card-subtle); border:1px solid var(--border);" onclick="closeSponsorModal()">✕</button>
+    </div>
+
+    <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:10px;">
+      <span style="font-size:24px; font-weight:800; color:var(--fg); letter-spacing:-0.03em;">$199</span>
+      <span style="font-size:11.5px; color:var(--fg-secondary); font-weight:600;">/ month per slot</span>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--fg-secondary); margin-bottom:14px; line-height:1.45;">
+      Showcase your startup, product, or developer tool to thousands of active YC founders, investors, and technical builders on ReachYC.
+    </p>
+
+    <div style="background:var(--card-subtle); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; margin-bottom:14px; font-size:11px; display:flex; flex-direction:column; gap:6px;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-weight:700; color:var(--fg);">✓</span>
+        <span style="color:var(--fg);">Desktop side rails & mobile marquee banner placement</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-weight:700; color:var(--fg);">✓</span>
+        <span style="color:var(--fg);">Custom product name, tagline, and direct tracking link</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-weight:700; color:var(--fg);">✓</span>
+        <span style="color:var(--fg);">Active across all YC batch directories</span>
+      </div>
+    </div>
+
+    <a href="mailto:anoooj91@gmail.com?subject=Sponsor%20ReachYC%20Slot%20(%24199%2Fmonth)&body=Hi%20Anuj%2C%0A%0AI%20would%20like%20to%20reserve%20a%20sponsor%20slot%20on%20ReachYC%20(%24199%2Fmonth).%0A%0ACompany%20%2F%20Product%20Name%3A%20%0AWebsite%20URL%3A%20%0AContact%20Name%3A%20%0ABrief%20Tagline%20(1%20line)%3A%20%0A%0AThanks!" 
+       class="btn primary" 
+       style="width:100%; height:36px; font-size:12px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; text-decoration:none; margin-bottom:8px;">
+      <i class="hgi-stroke hgi-mail-01" style="margin-right:4px;"></i>
+      <span>Email anoooj91@gmail.com ($199)</span>
     </a>
-    <a href="https://neon.tech/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://neon.tech/favicon/favicon.png" alt="Neon" onerror="this.src='https://www.google.com/s2/favicons?domain=neon.tech&sz=64'">
-      <span>Neon</span>
-    </a>
-    <a href="https://linear.app/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://linear.app/static/apple-touch-icon.png" alt="Linear" onerror="this.src='https://www.google.com/s2/favicons?domain=linear.app&sz=64'">
-      <span>Linear</span>
-    </a>
-    <a href="https://mercury.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://mercury.com/favicon.ico" alt="Mercury" onerror="this.src='https://www.google.com/s2/favicons?domain=mercury.com&sz=64'">
-      <span>Mercury</span>
-    </a>
-    <a href="https://resend.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://resend.com/static/favicons/favicon.ico" alt="Resend" onerror="this.src='https://www.google.com/s2/favicons?domain=reachyc_sponsors'">
-      <span>Resend</span>
-    </a>
-    <a href="https://doppler.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets-global.website-files.com/5ec83f3e954930dfca600676/609a393f353a992a0ea83b4c_Favicon%2032x32.png" alt="Doppler" onerror="this.src='https://www.google.com/s2/favicons?domain=doppler.com&sz=64'">
-      <span>Doppler</span>
-    </a>
-    <a href="https://clerk.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://clerk.com/favicon/favicon-32x32.png" alt="Clerk" onerror="this.src='https://www.google.com/s2/favicons?domain=clerk.com&sz=64'">
-      <span>Clerk</span>
-    </a>
-    <a href="https://vercel.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" onerror="this.src='https://www.google.com/s2/favicons?domain=vercel.com&sz=64'">
-      <span>Vercel</span>
-    </a>
-    <a href="https://posthog.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://posthog.com/favicon.ico" alt="PostHog" onerror="this.src='https://www.google.com/s2/favicons?domain=posthog.com&sz=64'">
-      <span>PostHog</span>
-    </a>
-    <a href="https://supabase.com/?utm_source=reachyc&utm_medium=partner&utm_campaign=reachyc_sponsors" target="_blank" rel="noopener" class="mobile-sponsor-pill">
-      <img src="https://supabase.com/favicon/favicon-32x32.png" alt="Supabase" onerror="this.src='https://www.google.com/s2/favicons?domain=supabase.com&sz=64'">
-      <span>Supabase</span>
-    </a>
+
+    <div style="text-align:center;">
+      <button type="button" onclick="copySponsorEmail()" style="background:transparent; border:none; color:var(--fg-secondary); font-size:10.5px; cursor:pointer; text-decoration:underline;">
+        Or click to copy email: anoooj91@gmail.com
+      </button>
+    </div>
   </div>
 </div>
 
@@ -1875,10 +1606,6 @@ CREATE TABLE IF NOT EXISTS public.reachyc_templates (
       <button type="button" class="mobile-drawer-item" data-tab="tab-verifier" onclick="switchTab('tab-verifier'); toggleMobileMenu(false);">
         <i class="hgi-stroke hgi-sparkles"></i>
         <span>Verify</span>
-      </button>
-      <button type="button" class="mobile-drawer-item" data-tab="tab-supabase" onclick="switchTab('tab-supabase'); toggleMobileMenu(false);">
-        <i class="hgi-stroke hgi-database"></i>
-        <span>Supabase</span>
       </button>
     </div>
   </div>
@@ -1997,6 +1724,26 @@ function closeAuthModal(e) {
   if (e && e.target !== $("authModal") && !e.target.closest("button")) return;
   const m = $("authModal");
   if (m) m.classList.remove("open");
+}
+
+// Centered Sponsor Modal Popup ($199/mo)
+function openSponsorModal() {
+  const m = $("sponsorModal");
+  if (m) m.classList.add("open");
+}
+
+function closeSponsorModal(e) {
+  if (e && e.target !== $("sponsorModal") && !e.target.closest("button")) return;
+  const m = $("sponsorModal");
+  if (m) m.classList.remove("open");
+}
+
+function copySponsorEmail() {
+  navigator.clipboard.writeText("anoooj91@gmail.com").then(() => {
+    alert("Copied email address: anoooj91@gmail.com");
+  }).catch(() => {
+    prompt("Email address:", "anoooj91@gmail.com");
+  });
 }
 
 // Sync Auth UI & Mobile Menu Visibility
@@ -2672,13 +2419,6 @@ async function enrich() {
 // Global Filter Events
 ["q", "hideSent"].forEach(id => $(id).addEventListener(id === "q" ? "input" : "change", filter));
 
-$("expandToggle").onclick = () => {
-  const cards = document.querySelectorAll(".item-card");
-  const isExpanding = $("expandToggle").textContent.includes("Expand");
-  cards.forEach(c => c.classList.toggle("open", isExpanding));
-  $("expandToggle").textContent = isExpanding ? 'Collapse' : 'Expand';
-};
-
 document.querySelectorAll("[data-k]").forEach(el => {
   if (!(el.dataset.k in tpl)) return;
   el.value = tpl[el.dataset.k];
@@ -2716,189 +2456,8 @@ $("loadBtn").onclick = loadBatch;
 $("more").onclick = loadMore;
 $("enrich").onclick = enrich;
 
-// --- Supabase Integration ---
-const SUPABASE_STORAGE_KEY = "reachyc_supabase_config";
-
-function getSupabaseConfig() {
-  try { return JSON.parse(localStorage.getItem(SUPABASE_STORAGE_KEY) || '{}'); } catch { return {}; }
-}
-
-function updateSupabaseUI() {
-  const cfg = getSupabaseConfig();
-  const urlEl = $("supabaseUrlInput");
-  const keyEl = $("supabaseKeyInput");
-  const badgeEl = $("supabaseStatusBadge");
-
-  if (urlEl && cfg.url) urlEl.value = cfg.url;
-  if (keyEl && cfg.key) keyEl.value = cfg.key;
-
-  if (badgeEl) {
-    if (cfg.url && cfg.key) {
-      badgeEl.style.background = "var(--emerald-soft)";
-      badgeEl.style.borderColor = "var(--emerald)";
-      badgeEl.style.color = "var(--emerald)";
-      badgeEl.innerHTML = `<div style="width:6px; height:6px; border-radius:50%; background:var(--emerald);"></div><span>Connected</span>`;
-    } else {
-      badgeEl.style.background = "var(--card-subtle)";
-      badgeEl.style.borderColor = "var(--border)";
-      badgeEl.style.color = "var(--fg-secondary)";
-      badgeEl.innerHTML = `<div style="width:6px; height:6px; border-radius:50%; background:var(--fg-tertiary);"></div><span>Not Configured</span>`;
-    }
-  }
-}
-
-async function handleSaveSupabaseConfig(e) {
-  if (e) e.preventDefault();
-  const url = $("supabaseUrlInput").value.trim();
-  const key = $("supabaseKeyInput").value.trim();
-  const feedbackEl = $("supabaseFeedback");
-
-  if (!url || !key) return;
-
-  feedbackEl.style.display = "block";
-  feedbackEl.style.background = "var(--card-subtle)";
-  feedbackEl.style.borderColor = "var(--border)";
-  feedbackEl.style.color = "var(--fg)";
-  feedbackEl.textContent = "Testing Supabase connection...";
-
-  try {
-    const client = window.supabase ? window.supabase.createClient(url, key) : null;
-    if (!client) throw new Error("Supabase JS SDK not loaded");
-
-    // Ping test query
-    const { error } = await client.from('reachyc_outreach').select('id').limit(1);
-    
-    // Save configuration
-    localStorage.setItem(SUPABASE_STORAGE_KEY, JSON.stringify({ url, key }));
-    updateSupabaseUI();
-
-    feedbackEl.style.background = "var(--emerald-soft)";
-    feedbackEl.style.borderColor = "var(--emerald)";
-    feedbackEl.style.color = "var(--emerald)";
-    feedbackEl.textContent = error && error.code === '42P01' 
-      ? "Connected to Supabase! Please run the SQL migration script below in your Supabase SQL Editor to create required tables."
-      : "Successfully connected and verified Supabase Database!";
-  } catch (err) {
-    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
-    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
-    feedbackEl.style.color = "#dc2626";
-    feedbackEl.textContent = `Supabase Connection Failed: ${err.message || err}`;
-  }
-}
-
-async function handleSyncToSupabase() {
-  const cfg = getSupabaseConfig();
-  const feedbackEl = $("supabaseFeedback");
-  feedbackEl.style.display = "block";
-
-  if (!cfg.url || !cfg.key) {
-    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
-    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
-    feedbackEl.style.color = "#dc2626";
-    feedbackEl.textContent = "Please configure and save your Supabase URL & API Key first.";
-    return;
-  }
-
-  feedbackEl.style.background = "var(--card-subtle)";
-  feedbackEl.style.borderColor = "var(--border)";
-  feedbackEl.style.color = "var(--fg)";
-  feedbackEl.textContent = "Syncing YC cold outreach emails and templates to Supabase...";
-
-  try {
-    const client = window.supabase.createClient(cfg.url, cfg.key);
-    
-    // Sync templates
-    if (tpl.subject || tpl.body) {
-      await client.from('reachyc_templates').upsert({
-        template_name: 'default',
-        subject: tpl.subject,
-        body: tpl.body,
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'template_name' }).catch(() => {});
-    }
-
-    // Sync sent emails
-    const sentList = Array.from(sent);
-    if (sentList.length) {
-      const records = sentList.map(email => ({
-        company_name: email.split('@')[1] || 'YC Startup',
-        email: email,
-        status: 'sent',
-        created_at: new Date().toISOString()
-      }));
-      await client.from('reachyc_outreach').upsert(records, { onConflict: 'email' }).catch(() => {});
-    }
-
-    feedbackEl.style.background = "var(--emerald-soft)";
-    feedbackEl.style.borderColor = "var(--emerald)";
-    feedbackEl.style.color = "var(--emerald)";
-    feedbackEl.textContent = `Synced ${sentList.length} cold outreach records and active email template to Supabase!`;
-  } catch (err) {
-    feedbackEl.style.background = "rgba(220, 38, 38, 0.08)";
-    feedbackEl.style.borderColor = "rgba(220, 38, 38, 0.3)";
-    feedbackEl.style.color = "#dc2626";
-    feedbackEl.textContent = `Sync Error: ${err.message || err}`;
-  }
-}
-
-function copySupabaseSchema() {
-  const sql = `-- ReachYC - Supabase PostgreSQL Database Schema (from /schema.sql)
-CREATE TABLE IF NOT EXISTS public.profiles (
-  id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
-  email TEXT NOT NULL,
-  full_name TEXT,
-  portfolio_url TEXT,
-  github_url TEXT,
-  resume_url TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS public.reachyc_outreach (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  company_name TEXT NOT NULL,
-  startup_slug TEXT,
-  founder_name TEXT,
-  email TEXT NOT NULL UNIQUE,
-  status TEXT DEFAULT 'sent' CHECK (status IN ('sent', 'drafted', 'replied', 'bounced')),
-  notes TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS public.reachyc_templates (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  template_name TEXT NOT NULL UNIQUE DEFAULT 'default',
-  subject TEXT,
-  body TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.reachyc_outreach ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.reachyc_templates ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow anon and auth read outreach" ON public.reachyc_outreach FOR SELECT USING (true);
-CREATE POLICY "Allow anon and auth insert outreach" ON public.reachyc_outreach FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow anon and auth update outreach" ON public.reachyc_outreach FOR UPDATE USING (true);
-
-CREATE POLICY "Allow anon and auth read templates" ON public.reachyc_templates FOR SELECT USING (true);
-CREATE POLICY "Allow anon and auth insert templates" ON public.reachyc_templates FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow anon and auth update templates" ON public.reachyc_templates FOR UPDATE USING (true);`;
-
-  navigator.clipboard.writeText(sql).then(() => {
-    alert("Full Supabase SQL script copied to clipboard! (Also saved at /schema.sql)");
-  }).catch(() => {
-    prompt("Copy SQL Migration (/schema.sql):", sql);
-  });
-}
-
 // Boot
 updateAuthUI();
-updateSupabaseUI();
 
 const lastCachedBatch = store.get(KEY + "-last", "");
 if (lastCachedBatch) {
